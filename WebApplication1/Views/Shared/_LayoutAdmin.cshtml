@@ -17,35 +17,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Zeus-ShopPale", "Testing", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Admin-ShopPale-CPanel", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
                 
             </div>
             <div class="navbar-collapse collapse">
                
                 <ul class="nav navbar-nav">
 
-                    <li>@Html.ActionLink("Index", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Informazioni", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contatto", "Contact", "Home")</li>
-<<<<<<< Updated upstream
-                   
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Login
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Login Utente</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Login Admin</a>
-                            <div class="dropdown-divider"></div>
-                            
-                        </div>
-                    </li>
-                    <li>@Html.ActionLink("Registrazione", "Registrazione", "Home")</li>
-                    <li>@Html.ActionLink("Carrello", "Carrello", "Home")</li>
-=======
-                    <li>@Html.ActionLink("Registrazione", "Registrazione", "Home")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                    <li>@Html.ActionLink("Dashboard", "Admin_Dashboard", "Admin")</li>
+                    <li>@Html.ActionLink("Login", "Admin_Login", "Admin")</li>
+                    <li>@Html.ActionLink("Admin-ShopPale-CPanel", "Index", "Admin")</li>
+
 
                     @*<li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,7 +42,6 @@
             </div>
         </li>*@
 
->>>>>>> Stashed changes
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Prodotti

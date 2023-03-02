@@ -26,5 +26,40 @@ namespace WebApplication1.Controllers
 
             return View();
         }
+<<<<<<< Updated upstream
+=======
+
+
+        public ActionResult Registrazione()
+        {
+            ViewBag.Message = "Your Registration page.";
+
+            return View();
+        }
+
+
+        public ActionResult Login()
+        {
+            ViewBag.Message = "Your User Login page.";
+
+            return View();
+        }
+
+
+        public ActionResult Admin()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Testing()
+        {
+            ViewBag.Message = "Your Admin Login page.";
+
+            return View();
+        }
+
+>>>>>>> Stashed changes
     }
 }
