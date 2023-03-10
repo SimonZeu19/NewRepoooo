@@ -158,6 +158,7 @@
     <Content Include="Content\bootstrapvapor.css" />
     <Content Include="Content\bootstrap_superhero.css" />
     <Content Include="Content\bootstrap_united.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -200,16 +201,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-<<<<<<< Updated upstream
-=======
     <Content Include="Views\Home\Registrazione.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Admind\Admin_Dashboard.cshtml" />
-    <Content Include="Views\Admind\Admin_Login.cshtml" />
+    <Content Include="Views\Admin\Admin_Dashboard.cshtml" />
+    <Content Include="Views\Admin\Admin_Login.cshtml" />
     <Content Include="Views\Home\Testing.cshtml" />
-    <Content Include="Views\Admind\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
->>>>>>> Stashed changes
+    <Content Include="Views\Admin\ViewAttrezzi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

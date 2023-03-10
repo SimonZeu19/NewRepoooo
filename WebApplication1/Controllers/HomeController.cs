@@ -26,9 +26,6 @@ namespace WebApplication1.Controllers
 
             return View();
         }
-<<<<<<< Updated upstream
-=======
-
 
         public ActionResult Registrazione()
         {
@@ -60,6 +57,5 @@ namespace WebApplication1.Controllers
             return View();
         }
 
->>>>>>> Stashed changes
     }
 }
