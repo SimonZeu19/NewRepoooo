@@ -4,7 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/Service1/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/Service1/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/Service1/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/Service1/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/Service1/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_Registrazione_InputMessage">
@@ -13,11 +14,11 @@
   <wsdl:message name="IService1_Registrazione_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistrazioneResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Login_InputMessage">
-    <wsdl:part name="parameters" element="tns:Login" />
+  <wsdl:message name="IService1_LoginUtente_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUtente" />
   </wsdl:message>
-  <wsdl:message name="IService1_Login_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  <wsdl:message name="IService1_LoginUtente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUtenteResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_LoginAdmin_InputMessage">
     <wsdl:part name="parameters" element="tns:LoginAdmin" />
@@ -25,11 +26,11 @@
   <wsdl:message name="IService1_LoginAdmin_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginAdminResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListaAttrezzi_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListaAttrezzi" />
+  <wsdl:message name="IService1_listaAttrezzi_InputMessage">
+    <wsdl:part name="parameters" element="tns:listaAttrezzi" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListaAttrezzi_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListaAttrezziResponse" />
+  <wsdl:message name="IService1_listaAttrezzi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listaAttrezziResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_Addattrezzi_InputMessage">
     <wsdl:part name="parameters" element="tns:Addattrezzi" />
@@ -37,96 +38,106 @@
   <wsdl:message name="IService1_Addattrezzi_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddattrezziResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_viewSpecificheattrezzi_InputMessage">
+    <wsdl:part name="parameters" element="tns:viewSpecificheattrezzi" />
+  </wsdl:message>
+  <wsdl:message name="IService1_viewSpecificheattrezzi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:viewSpecificheattrezziResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearecarrello_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearecarrello" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearecarrello_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearecarrelloResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Removeattrezzi_InputMessage">
     <wsdl:part name="parameters" element="tns:Removeattrezzi" />
   </wsdl:message>
   <wsdl:message name="IService1_Removeattrezzi_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveattrezziResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListaCarrello_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListaCarrello" />
+  <wsdl:message name="IService1_ViewCarrello_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewCarrello" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListaCarrello_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListaCarrelloResponse" />
+  <wsdl:message name="IService1_ViewCarrello_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewCarrelloResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_AddCarrello_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddCarrello" />
+  <wsdl:message name="IService1_Removecarrello_InputMessage">
+    <wsdl:part name="parameters" element="tns:Removecarrello" />
   </wsdl:message>
-  <wsdl:message name="IService1_AddCarrello_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddCarrelloResponse" />
+  <wsdl:message name="IService1_Removecarrello_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovecarrelloResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListaUtenti_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListaUtenti" />
+  <wsdl:message name="IService1_ViewUtenti_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewUtenti" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListaUtenti_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListaUtentiResponse" />
+  <wsdl:message name="IService1_ViewUtenti_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewUtentiResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Addutente_InputMessage">
-    <wsdl:part name="parameters" element="tns:Addutente" />
+  <wsdl:message name="IService1_ViewVendite_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewVendite" />
   </wsdl:message>
-  <wsdl:message name="IService1_Addutente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddutenteResponse" />
+  <wsdl:message name="IService1_ViewVendite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewVenditeResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Removeutente_InputMessage">
-    <wsdl:part name="parameters" element="tns:Removeutente" />
+  <wsdl:message name="IService1_Buy_InputMessage">
+    <wsdl:part name="parameters" element="tns:Buy" />
   </wsdl:message>
-  <wsdl:message name="IService1_Removeutente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveutenteResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListaVendite_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListaVendite" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListaVendite_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListaVenditeResponse" />
+  <wsdl:message name="IService1_Buy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuyResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Registrazione">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Registrazione" message="tns:IService1_Registrazione_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RegistrazioneResponse" message="tns:IService1_Registrazione_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Login" message="tns:IService1_Login_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginResponse" message="tns:IService1_Login_OutputMessage" />
+    <wsdl:operation name="LoginUtente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginUtente" message="tns:IService1_LoginUtente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginUtenteResponse" message="tns:IService1_LoginUtente_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LoginAdmin">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginAdmin" message="tns:IService1_LoginAdmin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginAdminResponse" message="tns:IService1_LoginAdmin_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListaAttrezzi">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListaAttrezzi" message="tns:IService1_ListaAttrezzi_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListaAttrezziResponse" message="tns:IService1_ListaAttrezzi_OutputMessage" />
+    <wsdl:operation name="listaAttrezzi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listaAttrezzi" message="tns:IService1_listaAttrezzi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listaAttrezziResponse" message="tns:IService1_listaAttrezzi_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Addattrezzi">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Addattrezzi" message="tns:IService1_Addattrezzi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddattrezziResponse" message="tns:IService1_Addattrezzi_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="viewSpecificheattrezzi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/viewSpecificheattrezzi" message="tns:IService1_viewSpecificheattrezzi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/viewSpecificheattrezziResponse" message="tns:IService1_viewSpecificheattrezzi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearecarrello">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearecarrello" message="tns:IService1_crearecarrello_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearecarrelloResponse" message="tns:IService1_crearecarrello_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Removeattrezzi">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Removeattrezzi" message="tns:IService1_Removeattrezzi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveattrezziResponse" message="tns:IService1_Removeattrezzi_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListaCarrello">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListaCarrello" message="tns:IService1_ListaCarrello_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListaCarrelloResponse" message="tns:IService1_ListaCarrello_OutputMessage" />
+    <wsdl:operation name="ViewCarrello">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ViewCarrello" message="tns:IService1_ViewCarrello_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ViewCarrelloResponse" message="tns:IService1_ViewCarrello_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddCarrello">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddCarrello" message="tns:IService1_AddCarrello_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddCarrelloResponse" message="tns:IService1_AddCarrello_OutputMessage" />
+    <wsdl:operation name="Removecarrello">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Removecarrello" message="tns:IService1_Removecarrello_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemovecarrelloResponse" message="tns:IService1_Removecarrello_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListaUtenti">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListaUtenti" message="tns:IService1_ListaUtenti_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListaUtentiResponse" message="tns:IService1_ListaUtenti_OutputMessage" />
+    <wsdl:operation name="ViewUtenti">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ViewUtenti" message="tns:IService1_ViewUtenti_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ViewUtentiResponse" message="tns:IService1_ViewUtenti_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Addutente">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Addutente" message="tns:IService1_Addutente_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddutenteResponse" message="tns:IService1_Addutente_OutputMessage" />
+    <wsdl:operation name="ViewVendite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ViewVendite" message="tns:IService1_ViewVendite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ViewVenditeResponse" message="tns:IService1_ViewVendite_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Removeutente">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Removeutente" message="tns:IService1_Removeutente_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveutenteResponse" message="tns:IService1_Removeutente_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ListaVendite">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListaVendite" message="tns:IService1_ListaVendite_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListaVenditeResponse" message="tns:IService1_ListaVendite_OutputMessage" />
+    <wsdl:operation name="Buy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Buy" message="tns:IService1_Buy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/BuyResponse" message="tns:IService1_Buy_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -140,8 +151,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <soap:operation soapAction="http://tempuri.org/IService1/Login" style="document" />
+    <wsdl:operation name="LoginUtente">
+      <soap:operation soapAction="http://tempuri.org/IService1/LoginUtente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -158,8 +169,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListaAttrezzi">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListaAttrezzi" style="document" />
+    <wsdl:operation name="listaAttrezzi">
+      <soap:operation soapAction="http://tempuri.org/IService1/listaAttrezzi" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -176,6 +187,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="viewSpecificheattrezzi">
+      <soap:operation soapAction="http://tempuri.org/IService1/viewSpecificheattrezzi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearecarrello">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearecarrello" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Removeattrezzi">
       <soap:operation soapAction="http://tempuri.org/IService1/Removeattrezzi" style="document" />
       <wsdl:input>
@@ -185,8 +214,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListaCarrello">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListaCarrello" style="document" />
+    <wsdl:operation name="ViewCarrello">
+      <soap:operation soapAction="http://tempuri.org/IService1/ViewCarrello" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -194,8 +223,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddCarrello">
-      <soap:operation soapAction="http://tempuri.org/IService1/AddCarrello" style="document" />
+    <wsdl:operation name="Removecarrello">
+      <soap:operation soapAction="http://tempuri.org/IService1/Removecarrello" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -203,8 +232,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListaUtenti">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListaUtenti" style="document" />
+    <wsdl:operation name="ViewUtenti">
+      <soap:operation soapAction="http://tempuri.org/IService1/ViewUtenti" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -212,8 +241,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Addutente">
-      <soap:operation soapAction="http://tempuri.org/IService1/Addutente" style="document" />
+    <wsdl:operation name="ViewVendite">
+      <soap:operation soapAction="http://tempuri.org/IService1/ViewVendite" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -221,17 +250,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Removeutente">
-      <soap:operation soapAction="http://tempuri.org/IService1/Removeutente" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ListaVendite">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListaVendite" style="document" />
+    <wsdl:operation name="Buy">
+      <soap:operation soapAction="http://tempuri.org/IService1/Buy" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

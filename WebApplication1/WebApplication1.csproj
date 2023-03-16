@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -127,7 +128,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\AdmindController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UtenteController.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,6 +148,9 @@
     <None Include="Connected Services\ServiceReference1\item.disco" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -176,6 +180,10 @@
     </None>
     <None Include="Connected Services\ServiceReference1\Service1.wsdl" />
     <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <Content Include="Properties\DataSources\ConsoleApp1.Classi.Attrezzi.datasource" />
+    <Content Include="Properties\DataSources\ConsoleApp1.Classi.Carrello.datasource" />
+    <Content Include="Properties\DataSources\ConsoleApp1.Classi.Utenti.datasource" />
+    <Content Include="Properties\DataSources\ConsoleApp1.Classi.Vendite.datasource" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -203,12 +211,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Registrazione.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Admin\Admin_Dashboard.cshtml" />
-    <Content Include="Views\Admin\Admin_Login.cshtml" />
     <Content Include="Views\Home\Testing.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\ViewAttrezzi.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

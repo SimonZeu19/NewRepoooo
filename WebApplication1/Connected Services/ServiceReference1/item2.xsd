@@ -1,93 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/Service1/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" />
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/Service1/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:element name="Registrazione">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="cognome" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="codicefiscale" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="datanascita" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="utente" nillable="true" type="q1:Utenti" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RegistrazioneResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="RegistrazioneResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="RegistrazioneResult" nillable="true" type="q2:Utenti" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Login">
+  <xs:element name="LoginUtente">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="utente" nillable="true" type="q3:Utenti" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="LoginResponse">
+  <xs:element name="LoginUtenteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="LoginResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="LoginUtenteResult" nillable="true" type="q4:Utenti" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LoginAdmin">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="utenti" nillable="true" type="q5:Utenti" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LoginAdminResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="LoginAdminResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="LoginAdminResult" nillable="true" type="q6:Utenti" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListaAttrezzi">
+  <xs:element name="listaAttrezzi">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id_attressi" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListaAttrezziResponse">
+  <xs:element name="listaAttrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ListaAttrezziResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="listaAttrezziResult" type="q7:ValueTupleOfArrayOfAttrezzistringsi3MSdzS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Addattrezzi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id_attrezzo" type="xs:int" />
-        <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="attrezzi" nillable="true" type="q8:Attrezzi" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddattrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddattrezziResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="AddattrezziResult" type="q9:ValueTupleOfintstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="viewSpecificheattrezzi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_attrezzo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="viewSpecificheattrezziResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="viewSpecificheattrezziResult" type="q10:ValueTupleOfAttrezzistringsi3MSdzS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crearecarrello">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_attrezzo" type="xs:int" />
+        <xs:element minOccurs="0" name="id_utente" type="xs:int" />
+        <xs:element minOccurs="0" name="quntita" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crearecarrelloResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="crearecarrelloResult" type="q11:ValueTupleOfbooleanstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -95,138 +106,86 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id_attrezzo" type="xs:int" />
-        <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RemoveattrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="RemoveattrezziResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RemoveattrezziResult" type="q12:ValueTupleOfbooleanstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListaCarrello">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id_carrello" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListaCarrelloResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ListaCarrelloResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddCarrello">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id_carrello" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddCarrelloResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddCarrelloResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListaUtenti">
+  <xs:element name="ViewCarrello">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id_utente" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListaUtentiResponse">
+  <xs:element name="ViewCarrelloResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ListaUtentiResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewCarrelloResult" type="q13:ValueTupleOfArrayOfCarrellostringsi3MSdzS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Addutente">
+  <xs:element name="Removecarrello">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id_nome" type="xs:int" />
-        <xs:element minOccurs="0" name="cognome" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="codicefiscale" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id_carrello" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddutenteResponse">
+  <xs:element name="RemovecarrelloResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddutenteResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RemovecarrelloResult" type="q14:ValueTupleOfbooleanstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Removeutente">
+  <xs:element name="ViewUtenti">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id_nome" type="xs:int" />
-        <xs:element minOccurs="0" name="cognome" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="codicefiscale" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id_utente" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RemoveutenteResponse">
+  <xs:element name="ViewUtentiResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="RemoveutenteResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewUtentiResult" type="q15:ValueTupleOfArrayOfUtentistringsi3MSdzS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListaVendite">
+  <xs:element name="ViewVendite">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id_vendita" type="xs:int" />
+        <xs:element minOccurs="0" name="id_utente" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListaVenditeResponse">
+  <xs:element name="ViewVenditeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ListaVenditeResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewVenditeResult" type="q16:ValueTupleOfArrayOfVenditestringsi3MSdzS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Buy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_utente" type="xs:int" />
+        <xs:element minOccurs="0" name="indirizzoresidenza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codicepromo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cartacredoto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="BuyResult" type="q17:ValueTupleOfbooleanstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -16,7 +16,10 @@ namespace WebApplication1.Models
         [Display(Name = "Indireizzo E-mail")]
         public string email { get; set; }
 
-        [Display (Name = "Amministratore")]
-        public string admin { get; set; }
+        [Display (Name = "password")]
+        public string password { get; set; }
+
+        
+
     }
 }

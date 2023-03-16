@@ -11,7 +11,7 @@ namespace ConsoleApp1.Classi
         public int id_utente { get; set; }
 
         public string nome { get; set; }
-
+        public string Nome { get; set; }
         public string cognome { get; set; }
 
         public string codicefiscale { get; set; }
@@ -21,9 +21,10 @@ namespace ConsoleApp1.Classi
 
         public string password { get; set; }
 
-        public int numerotelefono { get; set; }
+        public long numerotelefono { get; set; }
 
         public string indirizzoresidenza { get; set; }
+        public string indirizzoconsegna { get; set; }
         public System.DateTime datanascita { get; set; }
 
         public bool admin { get; set; }

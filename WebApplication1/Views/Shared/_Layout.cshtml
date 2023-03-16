@@ -28,9 +28,15 @@
                     <li>@Html.ActionLink("Informazioni", "About", "Home")</li>
                     <li>@Html.ActionLink("Contatto", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Login", "Login", "Home")</li>
-                    <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
+                    @*@{var utente = (WebApplication1.ServiceReference1.Utenti)Session["utentAttivo"]; }
+                    @if(utente==null)
+                    {
+
+                
+                    }*@
+                    @*<li>@Html.ActionLink("Admin", "Admin", "Admin")</li>*@
                     <li>@Html.ActionLink("Registrazione", "Registrazione", "Home")</li>
-                    <li>@Html.ActionLink("Carrello", "Login", "Home")</li>
+                    <li>@Html.ActionLink("Carrello", "Carrello", "Home")</li>
 
 
                     @*<li class="nav-item dropdown">

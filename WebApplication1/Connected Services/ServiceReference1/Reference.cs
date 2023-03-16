@@ -16,76 +16,82 @@ namespace WebApplication1.ServiceReference1 {
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Registrazione", ReplyAction="http://tempuri.org/IService1/RegistrazioneResponse")]
-        string Registrazione(string nome, string cognome, string codicefiscale, System.DateTime datanascita, string email, string username, string password);
+        ConsoleApp1.Classi.Utenti Registrazione(ConsoleApp1.Classi.Utenti utente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Registrazione", ReplyAction="http://tempuri.org/IService1/RegistrazioneResponse")]
-        System.Threading.Tasks.Task<string> RegistrazioneAsync(string nome, string cognome, string codicefiscale, System.DateTime datanascita, string email, string username, string password);
+        System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> RegistrazioneAsync(ConsoleApp1.Classi.Utenti utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
-        string Login(string username, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginUtente", ReplyAction="http://tempuri.org/IService1/LoginUtenteResponse")]
+        ConsoleApp1.Classi.Utenti LoginUtente(ConsoleApp1.Classi.Utenti utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
-        System.Threading.Tasks.Task<string> LoginAsync(string username, string password);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginAdmin", ReplyAction="http://tempuri.org/IService1/LoginAdminResponse")]
-        string LoginAdmin(string username, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginUtente", ReplyAction="http://tempuri.org/IService1/LoginUtenteResponse")]
+        System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginUtenteAsync(ConsoleApp1.Classi.Utenti utente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginAdmin", ReplyAction="http://tempuri.org/IService1/LoginAdminResponse")]
-        System.Threading.Tasks.Task<string> LoginAdminAsync(string username, string password);
+        ConsoleApp1.Classi.Utenti LoginAdmin(ConsoleApp1.Classi.Utenti utenti);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaAttrezzi", ReplyAction="http://tempuri.org/IService1/ListaAttrezziResponse")]
-        System.Data.DataTable ListaAttrezzi(int id_attressi);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginAdmin", ReplyAction="http://tempuri.org/IService1/LoginAdminResponse")]
+        System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginAdminAsync(ConsoleApp1.Classi.Utenti utenti);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaAttrezzi", ReplyAction="http://tempuri.org/IService1/ListaAttrezziResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ListaAttrezziAsync(int id_attressi);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listaAttrezzi", ReplyAction="http://tempuri.org/IService1/listaAttrezziResponse")]
+        System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string> listaAttrezzi(int id_attressi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listaAttrezzi", ReplyAction="http://tempuri.org/IService1/listaAttrezziResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string>> listaAttrezziAsync(int id_attressi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Addattrezzi", ReplyAction="http://tempuri.org/IService1/AddattrezziResponse")]
-        string Addattrezzi(int id_attrezzo, string nome);
+        System.ValueTuple<int, string> Addattrezzi(ConsoleApp1.Classi.Attrezzi attrezzi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Addattrezzi", ReplyAction="http://tempuri.org/IService1/AddattrezziResponse")]
-        System.Threading.Tasks.Task<string> AddattrezziAsync(int id_attrezzo, string nome);
+        System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddattrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/viewSpecificheattrezzi", ReplyAction="http://tempuri.org/IService1/viewSpecificheattrezziResponse")]
+        System.ValueTuple<ConsoleApp1.Classi.Attrezzi, string> viewSpecificheattrezzi(int id_attrezzo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/viewSpecificheattrezzi", ReplyAction="http://tempuri.org/IService1/viewSpecificheattrezziResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi, string>> viewSpecificheattrezziAsync(int id_attrezzo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/crearecarrello", ReplyAction="http://tempuri.org/IService1/crearecarrelloResponse")]
+        System.ValueTuple<bool, string> crearecarrello(int id_attrezzo, int id_utente, int quntita);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/crearecarrello", ReplyAction="http://tempuri.org/IService1/crearecarrelloResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<bool, string>> crearecarrelloAsync(int id_attrezzo, int id_utente, int quntita);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Removeattrezzi", ReplyAction="http://tempuri.org/IService1/RemoveattrezziResponse")]
-        string Removeattrezzi(int id_attrezzo, string nome);
+        System.ValueTuple<bool, string> Removeattrezzi(int id_attrezzo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Removeattrezzi", ReplyAction="http://tempuri.org/IService1/RemoveattrezziResponse")]
-        System.Threading.Tasks.Task<string> RemoveattrezziAsync(int id_attrezzo, string nome);
+        System.Threading.Tasks.Task<System.ValueTuple<bool, string>> RemoveattrezziAsync(int id_attrezzo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaCarrello", ReplyAction="http://tempuri.org/IService1/ListaCarrelloResponse")]
-        System.Data.DataTable ListaCarrello(int id_carrello);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewCarrello", ReplyAction="http://tempuri.org/IService1/ViewCarrelloResponse")]
+        System.ValueTuple<ConsoleApp1.Classi.Carrello[], string> ViewCarrello(int id_utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaCarrello", ReplyAction="http://tempuri.org/IService1/ListaCarrelloResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ListaCarrelloAsync(int id_carrello);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewCarrello", ReplyAction="http://tempuri.org/IService1/ViewCarrelloResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Carrello[], string>> ViewCarrelloAsync(int id_utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddCarrello", ReplyAction="http://tempuri.org/IService1/AddCarrelloResponse")]
-        string AddCarrello(int id_carrello);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Removecarrello", ReplyAction="http://tempuri.org/IService1/RemovecarrelloResponse")]
+        System.ValueTuple<bool, string> Removecarrello(int id_carrello);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddCarrello", ReplyAction="http://tempuri.org/IService1/AddCarrelloResponse")]
-        System.Threading.Tasks.Task<string> AddCarrelloAsync(int id_carrello);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Removecarrello", ReplyAction="http://tempuri.org/IService1/RemovecarrelloResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<bool, string>> RemovecarrelloAsync(int id_carrello);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaUtenti", ReplyAction="http://tempuri.org/IService1/ListaUtentiResponse")]
-        System.Data.DataTable ListaUtenti(int id_utente);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewUtenti", ReplyAction="http://tempuri.org/IService1/ViewUtentiResponse")]
+        System.ValueTuple<ConsoleApp1.Classi.Utenti[], string> ViewUtenti(int id_utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaUtenti", ReplyAction="http://tempuri.org/IService1/ListaUtentiResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ListaUtentiAsync(int id_utente);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewUtenti", ReplyAction="http://tempuri.org/IService1/ViewUtentiResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Utenti[], string>> ViewUtentiAsync(int id_utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Addutente", ReplyAction="http://tempuri.org/IService1/AddutenteResponse")]
-        string Addutente(int id_nome, string cognome, string codicefiscale);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewVendite", ReplyAction="http://tempuri.org/IService1/ViewVenditeResponse")]
+        System.ValueTuple<ConsoleApp1.Classi.Vendite[], string> ViewVendite(int id_utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Addutente", ReplyAction="http://tempuri.org/IService1/AddutenteResponse")]
-        System.Threading.Tasks.Task<string> AddutenteAsync(int id_nome, string cognome, string codicefiscale);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewVendite", ReplyAction="http://tempuri.org/IService1/ViewVenditeResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Vendite[], string>> ViewVenditeAsync(int id_utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Removeutente", ReplyAction="http://tempuri.org/IService1/RemoveutenteResponse")]
-        string Removeutente(int id_nome, string cognome, string codicefiscale);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Buy", ReplyAction="http://tempuri.org/IService1/BuyResponse")]
+        System.ValueTuple<bool, string> Buy(int id_utente, string indirizzoresidenza, string codicepromo, string cartacredoto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Removeutente", ReplyAction="http://tempuri.org/IService1/RemoveutenteResponse")]
-        System.Threading.Tasks.Task<string> RemoveutenteAsync(int id_nome, string cognome, string codicefiscale);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaVendite", ReplyAction="http://tempuri.org/IService1/ListaVenditeResponse")]
-        System.Data.DataTable ListaVendite(int id_vendita);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaVendite", ReplyAction="http://tempuri.org/IService1/ListaVenditeResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ListaVenditeAsync(int id_vendita);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Buy", ReplyAction="http://tempuri.org/IService1/BuyResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<bool, string>> BuyAsync(int id_utente, string indirizzoresidenza, string codicepromo, string cartacredoto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -115,100 +121,108 @@ namespace WebApplication1.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string Registrazione(string nome, string cognome, string codicefiscale, System.DateTime datanascita, string email, string username, string password) {
-            return base.Channel.Registrazione(nome, cognome, codicefiscale, datanascita, email, username, password);
+        public ConsoleApp1.Classi.Utenti Registrazione(ConsoleApp1.Classi.Utenti utente) {
+            return base.Channel.Registrazione(utente);
         }
         
-        public System.Threading.Tasks.Task<string> RegistrazioneAsync(string nome, string cognome, string codicefiscale, System.DateTime datanascita, string email, string username, string password) {
-            return base.Channel.RegistrazioneAsync(nome, cognome, codicefiscale, datanascita, email, username, password);
+        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> RegistrazioneAsync(ConsoleApp1.Classi.Utenti utente) {
+            return base.Channel.RegistrazioneAsync(utente);
         }
         
-        public string Login(string username, string password) {
-            return base.Channel.Login(username, password);
+        public ConsoleApp1.Classi.Utenti LoginUtente(ConsoleApp1.Classi.Utenti utente) {
+            return base.Channel.LoginUtente(utente);
         }
         
-        public System.Threading.Tasks.Task<string> LoginAsync(string username, string password) {
-            return base.Channel.LoginAsync(username, password);
+        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginUtenteAsync(ConsoleApp1.Classi.Utenti utente) {
+            return base.Channel.LoginUtenteAsync(utente);
         }
         
-        public string LoginAdmin(string username, string password) {
-            return base.Channel.LoginAdmin(username, password);
+        public ConsoleApp1.Classi.Utenti LoginAdmin(ConsoleApp1.Classi.Utenti utenti) {
+            return base.Channel.LoginAdmin(utenti);
         }
         
-        public System.Threading.Tasks.Task<string> LoginAdminAsync(string username, string password) {
-            return base.Channel.LoginAdminAsync(username, password);
+        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginAdminAsync(ConsoleApp1.Classi.Utenti utenti) {
+            return base.Channel.LoginAdminAsync(utenti);
         }
         
-        public System.Data.DataTable ListaAttrezzi(int id_attressi) {
-            return base.Channel.ListaAttrezzi(id_attressi);
+        public System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string> listaAttrezzi(int id_attressi) {
+            return base.Channel.listaAttrezzi(id_attressi);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> ListaAttrezziAsync(int id_attressi) {
-            return base.Channel.ListaAttrezziAsync(id_attressi);
+        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string>> listaAttrezziAsync(int id_attressi) {
+            return base.Channel.listaAttrezziAsync(id_attressi);
         }
         
-        public string Addattrezzi(int id_attrezzo, string nome) {
-            return base.Channel.Addattrezzi(id_attrezzo, nome);
+        public System.ValueTuple<int, string> Addattrezzi(ConsoleApp1.Classi.Attrezzi attrezzi) {
+            return base.Channel.Addattrezzi(attrezzi);
         }
         
-        public System.Threading.Tasks.Task<string> AddattrezziAsync(int id_attrezzo, string nome) {
-            return base.Channel.AddattrezziAsync(id_attrezzo, nome);
+        public System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddattrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi) {
+            return base.Channel.AddattrezziAsync(attrezzi);
         }
         
-        public string Removeattrezzi(int id_attrezzo, string nome) {
-            return base.Channel.Removeattrezzi(id_attrezzo, nome);
+        public System.ValueTuple<ConsoleApp1.Classi.Attrezzi, string> viewSpecificheattrezzi(int id_attrezzo) {
+            return base.Channel.viewSpecificheattrezzi(id_attrezzo);
         }
         
-        public System.Threading.Tasks.Task<string> RemoveattrezziAsync(int id_attrezzo, string nome) {
-            return base.Channel.RemoveattrezziAsync(id_attrezzo, nome);
+        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi, string>> viewSpecificheattrezziAsync(int id_attrezzo) {
+            return base.Channel.viewSpecificheattrezziAsync(id_attrezzo);
         }
         
-        public System.Data.DataTable ListaCarrello(int id_carrello) {
-            return base.Channel.ListaCarrello(id_carrello);
+        public System.ValueTuple<bool, string> crearecarrello(int id_attrezzo, int id_utente, int quntita) {
+            return base.Channel.crearecarrello(id_attrezzo, id_utente, quntita);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> ListaCarrelloAsync(int id_carrello) {
-            return base.Channel.ListaCarrelloAsync(id_carrello);
+        public System.Threading.Tasks.Task<System.ValueTuple<bool, string>> crearecarrelloAsync(int id_attrezzo, int id_utente, int quntita) {
+            return base.Channel.crearecarrelloAsync(id_attrezzo, id_utente, quntita);
         }
         
-        public string AddCarrello(int id_carrello) {
-            return base.Channel.AddCarrello(id_carrello);
+        public System.ValueTuple<bool, string> Removeattrezzi(int id_attrezzo) {
+            return base.Channel.Removeattrezzi(id_attrezzo);
         }
         
-        public System.Threading.Tasks.Task<string> AddCarrelloAsync(int id_carrello) {
-            return base.Channel.AddCarrelloAsync(id_carrello);
+        public System.Threading.Tasks.Task<System.ValueTuple<bool, string>> RemoveattrezziAsync(int id_attrezzo) {
+            return base.Channel.RemoveattrezziAsync(id_attrezzo);
         }
         
-        public System.Data.DataTable ListaUtenti(int id_utente) {
-            return base.Channel.ListaUtenti(id_utente);
+        public System.ValueTuple<ConsoleApp1.Classi.Carrello[], string> ViewCarrello(int id_utente) {
+            return base.Channel.ViewCarrello(id_utente);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> ListaUtentiAsync(int id_utente) {
-            return base.Channel.ListaUtentiAsync(id_utente);
+        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Carrello[], string>> ViewCarrelloAsync(int id_utente) {
+            return base.Channel.ViewCarrelloAsync(id_utente);
         }
         
-        public string Addutente(int id_nome, string cognome, string codicefiscale) {
-            return base.Channel.Addutente(id_nome, cognome, codicefiscale);
+        public System.ValueTuple<bool, string> Removecarrello(int id_carrello) {
+            return base.Channel.Removecarrello(id_carrello);
         }
         
-        public System.Threading.Tasks.Task<string> AddutenteAsync(int id_nome, string cognome, string codicefiscale) {
-            return base.Channel.AddutenteAsync(id_nome, cognome, codicefiscale);
+        public System.Threading.Tasks.Task<System.ValueTuple<bool, string>> RemovecarrelloAsync(int id_carrello) {
+            return base.Channel.RemovecarrelloAsync(id_carrello);
         }
         
-        public string Removeutente(int id_nome, string cognome, string codicefiscale) {
-            return base.Channel.Removeutente(id_nome, cognome, codicefiscale);
+        public System.ValueTuple<ConsoleApp1.Classi.Utenti[], string> ViewUtenti(int id_utente) {
+            return base.Channel.ViewUtenti(id_utente);
         }
         
-        public System.Threading.Tasks.Task<string> RemoveutenteAsync(int id_nome, string cognome, string codicefiscale) {
-            return base.Channel.RemoveutenteAsync(id_nome, cognome, codicefiscale);
+        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Utenti[], string>> ViewUtentiAsync(int id_utente) {
+            return base.Channel.ViewUtentiAsync(id_utente);
         }
         
-        public System.Data.DataTable ListaVendite(int id_vendita) {
-            return base.Channel.ListaVendite(id_vendita);
+        public System.ValueTuple<ConsoleApp1.Classi.Vendite[], string> ViewVendite(int id_utente) {
+            return base.Channel.ViewVendite(id_utente);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> ListaVenditeAsync(int id_vendita) {
-            return base.Channel.ListaVenditeAsync(id_vendita);
+        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Vendite[], string>> ViewVenditeAsync(int id_utente) {
+            return base.Channel.ViewVenditeAsync(id_utente);
+        }
+        
+        public System.ValueTuple<bool, string> Buy(int id_utente, string indirizzoresidenza, string codicepromo, string cartacredoto) {
+            return base.Channel.Buy(id_utente, indirizzoresidenza, codicepromo, cartacredoto);
+        }
+        
+        public System.Threading.Tasks.Task<System.ValueTuple<bool, string>> BuyAsync(int id_utente, string indirizzoresidenza, string codicepromo, string cartacredoto) {
+            return base.Channel.BuyAsync(id_utente, indirizzoresidenza, codicepromo, cartacredoto);
         }
     }
 }
