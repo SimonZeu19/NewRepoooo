@@ -162,7 +162,7 @@ namespace ConsoleApp1
             return (ret, ret2);
             
         }
-        public (List<Attrezzi>, string) listaAttrezzi(int id_attrezzi)
+        public (List<Attrezzi>, string) listaAttrezzi(int id_attrezzo)
         {
             List<Attrezzi> ret1 = new List<Attrezzi>();
             string ret2 = "";
@@ -170,7 +170,7 @@ namespace ConsoleApp1
             try
             {
                 conn.Open();
-                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi ORDER BY id_attrezzi('{id_attrezzi}',"))
+                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi ORDER BY id_attrezzo('{id_attrezzo}');"))
                 {
                     using(MySqlDataReader resultSet = command.ExecuteReader())
                     {
@@ -222,7 +222,7 @@ namespace ConsoleApp1
             {
                 conn.Open();
                 //trouver un produit à travers l'id et l'imprimer
-                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi WHERE id= '{id_attrezzo}'LIMIT 1;",conn))
+                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi WHERE id_attrezzo= '{id_attrezzo}'LIMIT 1;",conn))
                 {
                     using(MySqlDataReader resultSet = command.ExecuteReader())
                     {
@@ -487,7 +487,7 @@ namespace ConsoleApp1
                                 codicefiscale = resultSet.GetString(5),
                                 indirizzoresidenza = resultSet.GetString(6),
                                 numerotelefono = (int)resultSet.GetUInt32(7),
-                                admin = resultSet.GetBoolean(8),
+                                isAdmin = resultSet.GetBoolean(8),
                                 datanascita = resultSet.GetDateTime(9),
                             };
                             ret.Add(utente);

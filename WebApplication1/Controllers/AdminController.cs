@@ -35,18 +35,18 @@ namespace WebApplication1.Controllers
         //    var lista = wcf.ListaAttrezzi(id_attrezzo);
         //    return View("lista attrezzi", lista);
 
-        //}
+    //}
         public ActionResult ViewAttrezzi()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult ViewAttrezzi(int id_attrezzi)
+        public ActionResult ViewAttrezzi(int id_attrezzo)
         {
            
-            var listattrezzi = wcf.listaAttrezzi(id_attrezzi);
-            return View("ViewAttrezzi", listattrezzi);
+            var listattrezzi = wcf.listaAttrezzi(id_attrezzo);
+            return View("ViewAttrezzi",listattrezzi);
         }
 
     }

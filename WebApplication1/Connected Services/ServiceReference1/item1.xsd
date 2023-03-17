@@ -3,7 +3,6 @@
   <xs:complexType name="Utenti">
     <xs:sequence>
       <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="admin" type="xs:boolean" />
       <xs:element minOccurs="0" name="codicefiscale" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="cognome" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="datanascita" type="xs:dateTime" />
@@ -11,6 +10,7 @@
       <xs:element minOccurs="0" name="id_utente" type="xs:int" />
       <xs:element minOccurs="0" name="indirizzoconsegna" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="indirizzoresidenza" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
       <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="numerotelefono" type="xs:long" />
       <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />

@@ -34,10 +34,10 @@ namespace WebApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginAdminAsync(ConsoleApp1.Classi.Utenti utenti);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listaAttrezzi", ReplyAction="http://tempuri.org/IService1/listaAttrezziResponse")]
-        System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string> listaAttrezzi(int id_attressi);
+        System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string> listaAttrezzi(int id_attrezzo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listaAttrezzi", ReplyAction="http://tempuri.org/IService1/listaAttrezziResponse")]
-        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string>> listaAttrezziAsync(int id_attressi);
+        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string>> listaAttrezziAsync(int id_attrezzo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Addattrezzi", ReplyAction="http://tempuri.org/IService1/AddattrezziResponse")]
         System.ValueTuple<int, string> Addattrezzi(ConsoleApp1.Classi.Attrezzi attrezzi);
@@ -145,12 +145,12 @@ namespace WebApplication1.ServiceReference1 {
             return base.Channel.LoginAdminAsync(utenti);
         }
         
-        public System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string> listaAttrezzi(int id_attressi) {
-            return base.Channel.listaAttrezzi(id_attressi);
+        public System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string> listaAttrezzi(int id_attrezzo) {
+            return base.Channel.listaAttrezzi(id_attrezzo);
         }
         
-        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string>> listaAttrezziAsync(int id_attressi) {
-            return base.Channel.listaAttrezziAsync(id_attressi);
+        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi[], string>> listaAttrezziAsync(int id_attrezzo) {
+            return base.Channel.listaAttrezziAsync(id_attrezzo);
         }
         
         public System.ValueTuple<int, string> Addattrezzi(ConsoleApp1.Classi.Attrezzi attrezzi) {

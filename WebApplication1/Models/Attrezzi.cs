@@ -8,8 +8,11 @@ namespace WebApplication1.Models
 {
     public class Attrezzi
     {
+        [Display(Name = "Id_attrezzo")]
         public int id_attrezzo { get; set; }
-       
+
+        [Display(Name = "Immagine")]
+        [DataType(DataType.Upload)]
         public string img_url { get; set; }
 
         [Display(Name = "Nome")]

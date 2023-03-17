@@ -27,6 +27,6 @@ namespace ConsoleApp1.Classi
         public string indirizzoconsegna { get; set; }
         public System.DateTime datanascita { get; set; }
 
-        public bool admin { get; set; }
+        public bool isAdmin { get; set; }
     }
 }

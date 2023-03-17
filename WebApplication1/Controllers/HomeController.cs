@@ -84,6 +84,7 @@ namespace WebApplication1.Controllers
         {
             try
             {
+                
                 //Pagina nel quale l' utente inserisce i dati per il login
                 string h = "Login effettuato correttamente!";
                 Utenti ut = new Utenti();
@@ -97,10 +98,21 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    MessageBox.Show(h);
-                    return RedirectToAction("Index",utenti);
+                    if (risultato.isAdmin == false)
+                    {
+                        MessageBox.Show(h);
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        MessageBox.Show(h);
+                        return RedirectToAction("Index", "Utente");
+                    }
+
                 }
-         
+                //MessageBox.Show(h);
+                //return RedirectToAction("Index", utenti);
+
 
             }
             catch (Exception e)
