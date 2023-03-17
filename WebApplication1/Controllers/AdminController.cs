@@ -46,7 +46,7 @@ namespace WebApplication1.Controllers
         {
            
             var listattrezzi = wcf.listaAttrezzi(id_attrezzi);
-            return View("SeeSuperUsers", listattrezzi);
+            return View("ViewAttrezzi", listattrezzi);
         }
 
     }
