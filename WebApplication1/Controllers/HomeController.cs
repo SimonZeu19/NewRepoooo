@@ -98,7 +98,7 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    if (risultato.isAdmin == false)
+                    if (risultato.isAdmin)
                     {
                         MessageBox.Show(h);
                         return RedirectToAction("Index", "Admin");

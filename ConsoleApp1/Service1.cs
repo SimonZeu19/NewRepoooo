@@ -61,8 +61,10 @@ namespace ConsoleApp1
         }
         public Utenti LoginUtente(Utenti utente)
         {
+            Utenti ret = null;
+            string ret2 = "";
             MySqlConnection conn = new MySqlConnection(connection_string);
-            Console.WriteLine("a");
+           // Console.WriteLine("a");
 
             try
             {
@@ -73,9 +75,27 @@ namespace ConsoleApp1
                     {
                         if (resultSet.Read())
                         {
-                            Console.WriteLine("login ok");
-                            conn.Close();
-                            return utente;
+                            ret = new Utenti
+                            {
+                                id_utente = (int)resultSet.GetUInt32(0),
+                                nome = resultSet.GetString(1),
+                                cognome = resultSet.GetString(2),
+                                codicefiscale = resultSet.GetString(3),
+                                email = resultSet.GetString(4),
+                                username = resultSet.GetString(5),
+                                password = resultSet.GetString(6),
+                                indirizzoresidenza = resultSet.GetString(7),
+                                indirizzoconsegna = resultSet.GetString(8),
+                                numerotelefono = resultSet.GetInt64(9),
+                                datanascita= resultSet.GetDateTime(10),
+                                isAdmin = resultSet.GetBoolean(11),
+
+
+                            };
+                            //Console.WriteLine("login ok");
+                            //conn.Close();
+                            //return utente;
+                            
                         }
                         else
                         {
@@ -87,9 +107,16 @@ namespace ConsoleApp1
             catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
-                return null;
+                ret2 = e.Message;
             }
-            
+            finally
+            {
+                if(conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return ret;
            
         }
         public Utenti LoginAdmin(Utenti utente)

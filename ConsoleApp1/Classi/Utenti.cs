@@ -11,7 +11,7 @@ namespace ConsoleApp1.Classi
         public int id_utente { get; set; }
 
         public string nome { get; set; }
-        public string Nome { get; set; }
+        //public string Nome { get; set; }
         public string cognome { get; set; }
 
         public string codicefiscale { get; set; }
