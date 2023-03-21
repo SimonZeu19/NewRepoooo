@@ -42,11 +42,12 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public ActionResult ViewAttrezzi(int id_attrezzo)
+        public ActionResult Attrezzi(int id_attrezzo)
         {
-           
+            var wcf = new ServiceReference1.Service1Client();
             var listattrezzi = wcf.listaAttrezzi(id_attrezzo);
-            return View("ViewAttrezzi",listattrezzi);
+           
+            return View("Attrezzi");
         }
 
     }

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebApplication1.Models.Attrezzi>
+@{
+    ViewBag.Title = "Attrezzi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Lista Atrrezzi</h2>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.id_attrezzo)</th>
+        <th>@Html.DisplayNameFor(model => model.nome)</th>
+        <th>@Html.DisplayNameFor(model => model.marchio)</th>
+        <th>@Html.DisplayNameFor(model => model.peso)</th>
+        <th>@Html.DisplayNameFor(model => model.prezzo)</th>
+        <th>@Html.DisplayNameFor(model => model.quantita)</th>
+        
+    </tr>
+    @foreach(var item in Model)
+            {
+<tr>
+    <td>@Html.DisplayFor(Model => item.id_attrezzo)</td>
+    <td>@Html.DisplayFor(Model => item.nome)</td>
+    <td>@Html.DisplayFor(Model => item.marchio)</td>
+    <td>@Html.DisplayFor(Model => item.peso)</td>
+    <td>@Html.DisplayFor(Model => item.prezzo)</td>
+    <td>@Html.DisplayFor(Model => item.quantita)</td>
+
+
+</tr>
+            }
+</table>

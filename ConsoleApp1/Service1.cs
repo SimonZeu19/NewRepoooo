@@ -37,7 +37,7 @@ namespace ConsoleApp1
                     }
                     
                 }
-                using (MySqlCommand command = new MySqlCommand($"INSERT INTO utenti (email,password,username,nomme,cognome,codicefiscale,indirizzoresidenza,indirizzoconsegna) VALUES ('{utente.email}','{utente.password}','{utente.username}','{utente.nome}','{utente.cognome}','{utente.codicefiscale}','{utente.indirizzoconsegna}','{utente.indirizzoresidenza}');", conn))
+                using (MySqlCommand command = new MySqlCommand($"INSERT INTO utenti (email,password,username,nome,cognome,codicefiscale,indirizzoconsegna,indirizzoresidenza) VALUES ('{utente.email}','{utente.password}','{utente.username}','{utente.nome}','{utente.cognome}','{utente.codicefiscale}','{utente.indirizzoconsegna}','{utente.indirizzoresidenza}');", conn))
                 {
                     if (command.ExecuteNonQuery()>0)
                     {
@@ -193,6 +193,8 @@ namespace ConsoleApp1
         {
             List<Attrezzi> ret1 = new List<Attrezzi>();
             string ret2 = "";
+            //string clause = "";
+            
             MySqlConnection conn = new MySqlConnection(connection_string);
             try
             {

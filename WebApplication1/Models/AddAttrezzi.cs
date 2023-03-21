@@ -8,6 +8,31 @@ namespace WebApplication1.Models
 {
     public class AddAttrezzi
     {
+        //public ServiceReference1.IService1 toIntenalAttrezzi()
+        //{
+        //    try
+        //    {
+        //        return new ServiceReference1.Attrezzi()
+        //        {
+        //            brand = brand,
+        //            model = model,
+        //            cpu = cpu,
+        //            storage = storage,
+        //            battery = battery,
+        //            ram = ram,
+        //            os = os,
+        //            camera = camera,
+        //            display = display,
+        //            sim_count = sim_count,
+        //            price = price,
+        //            quantity = quantity,
+        //        };
+        //    }
+        //    catch
+        //    {
+        //        return null;
+        //    }
+        //}
 
         [Display(Name = "Immagine")]
         [Required(ErrorMessage = "Immagine richiesta")]
