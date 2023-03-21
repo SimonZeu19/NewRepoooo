@@ -25,7 +25,7 @@ namespace ConsoleApp1
         [OperationContract]
         (int ,string) Addattrezzi(Attrezzi attrezzi);
         [OperationContract]
-        (Attrezzi, string) viewSpecificheattrezzi(int id_attrezzo);
+        (Attrezzi, string) viewSpecificheattrezzi(Attrezzi attrezzi);
         [OperationContract]
         (bool, string) crearecarrello(int id_attrezzo, int id_utente, int quntita);
         [OperationContract]

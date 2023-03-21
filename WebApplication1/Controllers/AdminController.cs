@@ -36,7 +36,7 @@ namespace WebApplication1.Controllers
         //    return View("lista attrezzi", lista);
 
     //}
-        public ActionResult ViewAttrezzi()
+        public ActionResult Attrezzi()
         {
             return View();
         }
@@ -47,8 +47,21 @@ namespace WebApplication1.Controllers
             var wcf = new ServiceReference1.Service1Client();
             var listattrezzi = wcf.listaAttrezzi(id_attrezzo);
            
-            return View("Attrezzi");
+            return View("Attrezzi",listattrezzi);
         }
 
+        public ActionResult SpecificheAttrzzi()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SpecificheAttrezzi(int id_attrezzo)
+        {
+            var wcf = new ServiceReference1.Service1Client();
+            var attrezzi = wcf.viewSpecificheattrezzi(id_attrezzo);
+
+            return View("SpecificheAttrezzi",Attrezzi);
+            
+        }
     }
 }

@@ -241,7 +241,7 @@ namespace ConsoleApp1
             return (ret1, ret2);
            
         }
-        public (Attrezzi, string) viewSpecificheattrezzi(int id_attrezzo)
+        public (Attrezzi, string) viewSpecificheattrezzi(Attrezzi attrezzi)
         {
             Attrezzi ret = null;
             string ret2 = "";
@@ -251,7 +251,7 @@ namespace ConsoleApp1
             {
                 conn.Open();
                 //trouver un produit à travers l'id et l'imprimer
-                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi WHERE id_attrezzo= '{id_attrezzo}'LIMIT 1;",conn))
+                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi WHERE id_attrezzo= '{attrezzi.id_attrezzo}'LIMIT 1;",conn))
                 {
                     using(MySqlDataReader resultSet = command.ExecuteReader())
                     {
