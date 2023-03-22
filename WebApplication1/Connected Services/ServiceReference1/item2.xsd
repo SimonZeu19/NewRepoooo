@@ -44,17 +44,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="listaAttrezzi">
+  <xs:element name="FillListAttrezzi">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id_attrezzo" type="xs:int" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="listaAttrezziResponse">
+  <xs:element name="FillListAttrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="listaAttrezziResult" type="q7:ValueTupleOfArrayOfAttrezzistringsi3MSdzS" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="FillListAttrezziResult" nillable="true" type="q7:Attrezzi" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

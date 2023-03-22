@@ -16,6 +16,10 @@ namespace WebApplication1.Models
 
         public string nome { get; set; }
 
+        public string colore { get; set; }
+
+        public string dimensione { get; set; }
+
         public string marchio { get; set; }
 
         public double peso { get; set; }
@@ -24,7 +28,11 @@ namespace WebApplication1.Models
 
         public int quantita { get; set; }
 
-        public List<Attrezzi> attrezzi { set; get; }
+        public int materiale { get; set; }
+
+
+
+        public List<Attrezzi> Attrezzo { set; get; }
         
 
     }

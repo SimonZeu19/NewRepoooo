@@ -26,11 +26,11 @@
   <wsdl:message name="IService1_LoginAdmin_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginAdminResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_listaAttrezzi_InputMessage">
-    <wsdl:part name="parameters" element="tns:listaAttrezzi" />
+  <wsdl:message name="IService1_FillListAttrezzi_InputMessage">
+    <wsdl:part name="parameters" element="tns:FillListAttrezzi" />
   </wsdl:message>
-  <wsdl:message name="IService1_listaAttrezzi_OutputMessage">
-    <wsdl:part name="parameters" element="tns:listaAttrezziResponse" />
+  <wsdl:message name="IService1_FillListAttrezzi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FillListAttrezziResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_Addattrezzi_InputMessage">
     <wsdl:part name="parameters" element="tns:Addattrezzi" />
@@ -99,9 +99,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginAdmin" message="tns:IService1_LoginAdmin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginAdminResponse" message="tns:IService1_LoginAdmin_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="listaAttrezzi">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listaAttrezzi" message="tns:IService1_listaAttrezzi_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listaAttrezziResponse" message="tns:IService1_listaAttrezzi_OutputMessage" />
+    <wsdl:operation name="FillListAttrezzi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FillListAttrezzi" message="tns:IService1_FillListAttrezzi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FillListAttrezziResponse" message="tns:IService1_FillListAttrezzi_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Addattrezzi">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Addattrezzi" message="tns:IService1_Addattrezzi_InputMessage" />
@@ -169,8 +169,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="listaAttrezzi">
-      <soap:operation soapAction="http://tempuri.org/IService1/listaAttrezzi" style="document" />
+    <wsdl:operation name="FillListAttrezzi">
+      <soap:operation soapAction="http://tempuri.org/IService1/FillListAttrezzi" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

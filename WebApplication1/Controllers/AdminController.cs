@@ -28,24 +28,23 @@ namespace WebApplication1.Controllers
             var wcf = new ServiceReference1.Service1Client();
             List<Attrezzi> attrezzi = new List<Attrezzi>();
             
-            
            
             return View("Attrezzi");
         }
 
-        public ActionResult SpecificheAttrzzi()
+        public ActionResult SpecificheAttrezzi()
         {
             return View();
         }
-        //[HttpPost]
-        //public ActionResult SpecificheAttrezzi(int id_attrezzo)
-        //{
-        //    var wcf = new ServiceReference1.Service1Client();
-        //    var result = wcf.viewSpecificheattrezzi(id_attrezzo);
+        [HttpPost]
+        public ActionResult SpecificheAttrezzi(int id_attrezzo)
+        {
+          var wcf = new ServiceReference1.Service1Client();
+          var result = wcf.viewSpecificheattrezzi(id_attrezzo);
 
 
-        //    return View();
+          return View();
 
-        //}
+        }
     }
 }

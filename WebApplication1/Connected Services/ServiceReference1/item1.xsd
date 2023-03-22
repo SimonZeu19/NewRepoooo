@@ -17,17 +17,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Utenti" nillable="true" type="tns:Utenti" />
-  <xs:complexType name="ArrayOfAttrezzi">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attrezzi" nillable="true" type="tns:Attrezzi" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfAttrezzi" nillable="true" type="tns:ArrayOfAttrezzi" />
   <xs:complexType name="Attrezzi">
     <xs:sequence>
       <xs:element minOccurs="0" name="colore" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="dimensione" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="id_attrezzo" type="xs:int" />
+      <xs:element minOccurs="0" name="listattrezzi" nillable="true" type="tns:ArrayOfAttrezzi" />
       <xs:element minOccurs="0" name="marchio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="materiale" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
@@ -37,6 +32,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Attrezzi" nillable="true" type="tns:Attrezzi" />
+  <xs:complexType name="ArrayOfAttrezzi">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attrezzi" nillable="true" type="tns:Attrezzi" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttrezzi" nillable="true" type="tns:ArrayOfAttrezzi" />
   <xs:complexType name="ArrayOfCarrello">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Carrello" nillable="true" type="tns:Carrello" />
