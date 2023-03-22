@@ -24,6 +24,7 @@ namespace WebApplication1.Models
 
         public int quantita { get; set; }
 
+        public List<Attrezzi> attrezzi { set; get; }
         
 
     }

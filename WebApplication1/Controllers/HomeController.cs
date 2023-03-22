@@ -120,27 +120,7 @@ namespace WebApplication1.Controllers
                 ModelState.AddModelError("LogOnError", e.Message);
                 return View();
             }
-            //if (ModelState.IsValid)
-            //{
-            //    var wcf = new ServiceReference1.Service1Client();
-
-
-
-            //    var login = wcf.LoginUtente(new Utenti()
-            //    {
-            //        email = utenti.email,
-            //        password = utenti.password,
-            //        admin = false
-            //    });
-            //    if (login.email == "0" & login.password=="0")
-            //    {
-            //        ModelState.AddModelError("CustomErrorLogin", "Error insert email or password!");
-            //        return View("Login");
-            //    }
-
-
-            //}
-
+           
         }
 
       

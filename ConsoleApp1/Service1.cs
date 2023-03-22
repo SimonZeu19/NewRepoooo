@@ -8,8 +8,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-
-
+using System.Data.SqlClient;
 
 namespace ConsoleApp1
 {
@@ -189,59 +188,103 @@ namespace ConsoleApp1
             return (ret, ret2);
             
         }
-        public (List<Attrezzi>, string) listaAttrezzi(int id_attrezzo)
-        {
-            List<Attrezzi> ret1 = new List<Attrezzi>();
-            string ret2 = "";
-            //string clause = "";
+        //public (List<Attrezzi>, string) ListaAttrezzi(int id_attrezzo)
+        //{
+        //    List<Attrezzi> ret1 = new List<Attrezzi>();
+        //    string ret2 = "";
+        //    //string clause = "";
             
+        //    MySqlConnection conn = new MySqlConnection(connection_string);
+        //    try
+        //    {
+        //        conn.Open();
+        //        using (MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi ORDER BY id_attrezzo('{id_attrezzo}');"))
+        //        {
+        //            using(MySqlDataReader resultSet = command.ExecuteReader())
+        //            {
+        //                while(resultSet.Read())
+        //                {
+        //                    Attrezzi attrezzi = new Attrezzi()
+        //                    {
+        //                        id_attrezzo = (int)resultSet.GetUInt32(0),
+        //                        nome = resultSet.GetString(1),
+        //                        colore = resultSet.GetString(3),
+        //                        dimensione = resultSet.GetString(4),
+        //                        peso = resultSet.GetDouble(5),
+        //                        prezzo = resultSet.GetFloat(6),
+        //                        quantita = (int)resultSet.GetUInt32(7),
+        //                        marchio = resultSet.GetString(8),
+        //                        materiale = resultSet.GetString(9),
+        //                    };
+        //                    ret1.Add(attrezzi);
+        //                }
+        //            }
+        //        }
+        //        if(ret1.Count == 0)
+        //        {
+        //            throw new Exception("Nessun prodotto dispo");
+        //        }
+        //    }
+        //    catch(Exception e)
+        //    {
+        //        Console.WriteLine(e.ToString());
+        //        ret2 = e.Message;
+        //    }
+        //    finally
+        //    {
+        //        if(conn.State == ConnectionState.Open)
+        //        {
+        //            conn.Close();
+        //        }
+        //    }
+        //    return (ret1, ret2);
+           
+        //}
+        public Attrezzi FillListAttrezzi()
+        {
+            Attrezzi attrezzo = new Attrezzi();
+            attrezzo.listattrezzi = new List<Attrezzi>();
+
             MySqlConnection conn = new MySqlConnection(connection_string);
             try
             {
                 conn.Open();
-                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi ORDER BY id_attrezzo('{id_attrezzo}');"))
+                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi;"))
                 {
-                    using(MySqlDataReader resultSet = command.ExecuteReader())
+                    using (MySqlCommand insert = conn.CreateCommand())
                     {
-                        while(resultSet.Read())
+                        insert.CommandText = "SELECT * FROM Cinema";
+                        var result = insert.ExecuteReader();
+                        while (result.Read())
                         {
-                            Attrezzi attrezzi = new Attrezzi()
-                            {
-                                id_attrezzo = (int)resultSet.GetUInt32(0),
-                                nome = resultSet.GetString(1),
-                                colore = resultSet.GetString(3),
-                                dimensione = resultSet.GetString(4),
-                                peso = resultSet.GetDouble(5),
-                                prezzo = resultSet.GetFloat(6),
-                                quantita = (int)resultSet.GetUInt32(7),
-                                marchio = resultSet.GetString(8),
-                                materiale = resultSet.GetString(9),
-                            };
-                            ret1.Add(attrezzi);
+                            Attrezzi a = new Attrezzi();
+                            a.id_attrezzo = Convert.ToInt32(result["id_attrezzo"]);
+                            a.nome = result["nome"].ToString();
+                            a.peso = Convert.ToDouble(result["Peso"]);
+                            a.colore = result["colore"].ToString();
+                            a.dimensione = result["dimensione"].ToString();
+                            a.marchio = result["marchio"].ToString();
+                            a.materiale = result["materiale"].ToString();
+                            a.prezzo = Convert.ToSingle(result["Prezzo"]);
+                            a.quantita = Convert.ToInt32(result["quantita"]);
+                            attrezzo.listattrezzi.Add(a);
                         }
+                        conn.Close();
+                        conn.Dispose();
+                        return attrezzo;
                     }
                 }
-                if(ret1.Count == 0)
-                {
-                    throw new Exception("Nessun prodotto dispo");
-                }
+
+              
             }
-            catch(Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.ToString());
-                ret2 = e.Message;
+                Console.WriteLine("Errore: {0}", ex.Message);
             }
-            finally
-            {
-                if(conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-            return (ret1, ret2);
+            return null;
            
         }
-        public (Attrezzi, string) viewSpecificheattrezzi(Attrezzi attrezzi)
+        public (Attrezzi, string) viewSpecificheattrezzi(int id_attrezzo)
         {
             Attrezzi ret = null;
             string ret2 = "";
@@ -251,7 +294,7 @@ namespace ConsoleApp1
             {
                 conn.Open();
                 //trouver un produit à travers l'id et l'imprimer
-                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi WHERE id_attrezzo= '{attrezzi.id_attrezzo}'LIMIT 1;",conn))
+                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi WHERE id_attrezzo='{id_attrezzo}' LIMIT 1;",conn))
                 {
                     using(MySqlDataReader resultSet = command.ExecuteReader())
                     {
@@ -265,8 +308,8 @@ namespace ConsoleApp1
                                 dimensione = resultSet.GetString(3),
                                 peso = resultSet.GetDouble(4),
                                 prezzo = resultSet.GetFloat(5),
-                                quantita = (int)resultSet.GetUInt32(6),
                                 marchio = resultSet.GetString(7),
+                                quantita = (int)resultSet.GetUInt32(6),
                                 materiale = resultSet.GetString(8),
                             };
                             
@@ -342,7 +385,7 @@ namespace ConsoleApp1
             try
             {
                 conn.Open();
-                using(MySqlCommand command = new MySqlCommand($"SELECT id, quantita FROM attrezzi WHERE id='{id_attrezzo}'LIMIT 1;",conn))
+                using(MySqlCommand command = new MySqlCommand($"SELECT id_attrezzo, quantita FROM attrezzi WHERE id_attrezzo='{id_attrezzo}'LIMIT 1;",conn))
                 {
                     using (MySqlDataReader resultSet = command.ExecuteReader())
                     {
@@ -685,5 +728,7 @@ namespace ConsoleApp1
             }
             return (ret, ret2);
         }
+
+        
     }
 }
