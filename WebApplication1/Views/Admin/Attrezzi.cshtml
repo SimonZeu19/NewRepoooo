@@ -25,6 +25,7 @@
                 <td>@Html.DisplayFor(Model => item.peso)</td>
                 <td>@Html.DisplayFor(Model => item.prezzo)</td>
                 <td>@Html.DisplayFor(Model => item.quantita)</td>
+                <td>@Html.ActionLink("SpecificheAttrezzi","SpecificheAttrezzi", new {id_attrezzo=item.id_attrezzo })</td>
 
 
             </tr>

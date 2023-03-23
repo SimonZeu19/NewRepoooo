@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows;
 
 namespace WebApplication1.Controllers
 {
@@ -26,19 +27,59 @@ namespace WebApplication1.Controllers
             return View("Attrezzi", attrezzi);
         }
 
-        public ActionResult SpecificheAttrezzi()
-        {
-            return View();
-        }
-        [HttpPost]
         public ActionResult SpecificheAttrezzi(int id_attrezzo)
         {
-          var wcf = new ServiceReference1.Service1Client();
-          var result = wcf.viewSpecificheattrezzi(id_attrezzo);
 
+            var result = wcf.viewSpecificheattrezzi(id_attrezzo);
+           // Attrezzi att = new Attrezzi();
+            if (result != null)
+            {
+                
+                return View("SpecificheAttrezzi", Models.SpecificheAttrezzi.fromClassi(result));
+            }
+          
+            else return HttpNotFound();
+        }
+        public ActionResult AddAttrezzi()
+        {
 
-          return View();
+            ViewBag.Message = "Your User Login page.";
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult AddAttrezzi(AddAttrezzi attrezzi)
+        {
+        //    try
+        //    {
+        //        //pagina nella quale l' utente inserisce i dati per la registrazione
+        //        string l = "Aggiunta Attrezzo avvenuta con successo!";
+        //        Attrezzi ut = new Attrezzi();
+
+        //        ut.id_attrezzo =attrezzi.id_attrezzo;
+        //        ut.nome = attrezzi.nome;
+        //        ut.colore = attrezzi.colore;
+        //        ut.dimensione = attrezzi.dimensione;
+        //        ut.marchio = attrezzi.marchio;
+        //        ut.peso = attrezzi.peso;
+        //        ut.prezzo = attrezzi.prezzo;
+        //        ut.quantita = attrezzi.quantita;
+        //        ut.materiale = attrezzi.materiale;
+
+        //        var risultato = wcf.Addattrezzi(ut);
+        //        if (risultato == null) throw new Exception("Registrazione fallita");
+        //        Session["utenteAttivo"] = risultato;
+        //        MessageBox.Show(l);
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        ModelState.AddModelError("LogOnError", e.Message);
+        //        return View();
+        //    }
+        //}
+        var result = wcf.Addattrezzi(attrezzi.toClassi());
+            return RedirectToAction("Attrezzi",result);
         }
         
     }

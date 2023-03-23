@@ -80,7 +80,7 @@
   <xs:element name="viewSpecificheattrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="viewSpecificheattrezziResult" type="q10:ValueTupleOfAttrezzistringsi3MSdzS" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="viewSpecificheattrezziResult" nillable="true" type="q10:Attrezzi" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

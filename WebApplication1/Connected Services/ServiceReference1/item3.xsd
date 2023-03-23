@@ -18,22 +18,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ValueTupleOfintstring" nillable="true" type="tns:ValueTupleOfintstring" />
-  <xs:complexType name="ValueTupleOfAttrezzistringsi3MSdzS">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="ValueTupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="Attrezzi" Namespace="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" />
-          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
-        </GenericType>
-        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" name="Item1" nillable="true" type="q1:Attrezzi" />
-      <xs:element name="Item2" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ValueTupleOfAttrezzistringsi3MSdzS" nillable="true" type="tns:ValueTupleOfAttrezzistringsi3MSdzS" />
   <xs:complexType name="ValueTupleOfbooleanstring">
     <xs:annotation>
       <xs:appinfo>
@@ -61,7 +45,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" name="Item1" nillable="true" type="q2:ArrayOfCarrello" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" name="Item1" nillable="true" type="q1:ArrayOfCarrello" />
       <xs:element name="Item2" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -77,7 +61,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" name="Item1" nillable="true" type="q3:ArrayOfUtenti" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" name="Item1" nillable="true" type="q2:ArrayOfUtenti" />
       <xs:element name="Item2" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -93,7 +77,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" name="Item1" nillable="true" type="q4:ArrayOfVendite" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" name="Item1" nillable="true" type="q3:ArrayOfVendite" />
       <xs:element name="Item2" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

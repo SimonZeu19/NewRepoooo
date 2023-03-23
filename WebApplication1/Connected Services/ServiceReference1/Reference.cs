@@ -46,10 +46,10 @@ namespace WebApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddattrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/viewSpecificheattrezzi", ReplyAction="http://tempuri.org/IService1/viewSpecificheattrezziResponse")]
-        System.ValueTuple<ConsoleApp1.Classi.Attrezzi, string> viewSpecificheattrezzi(int id_attrezzo);
+        ConsoleApp1.Classi.Attrezzi viewSpecificheattrezzi(int id_attrezzo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/viewSpecificheattrezzi", ReplyAction="http://tempuri.org/IService1/viewSpecificheattrezziResponse")]
-        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi, string>> viewSpecificheattrezziAsync(int id_attrezzo);
+        System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi> viewSpecificheattrezziAsync(int id_attrezzo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/crearecarrello", ReplyAction="http://tempuri.org/IService1/crearecarrelloResponse")]
         System.ValueTuple<bool, string> crearecarrello(int id_attrezzo, int id_utente, int quntita);
@@ -161,11 +161,11 @@ namespace WebApplication1.ServiceReference1 {
             return base.Channel.AddattrezziAsync(attrezzi);
         }
         
-        public System.ValueTuple<ConsoleApp1.Classi.Attrezzi, string> viewSpecificheattrezzi(int id_attrezzo) {
+        public ConsoleApp1.Classi.Attrezzi viewSpecificheattrezzi(int id_attrezzo) {
             return base.Channel.viewSpecificheattrezzi(id_attrezzo);
         }
         
-        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Attrezzi, string>> viewSpecificheattrezziAsync(int id_attrezzo) {
+        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi> viewSpecificheattrezziAsync(int id_attrezzo) {
             return base.Channel.viewSpecificheattrezziAsync(id_attrezzo);
         }
         

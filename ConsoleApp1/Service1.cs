@@ -161,7 +161,7 @@ namespace ConsoleApp1
             {
                 conn.Open();
 
-                using(MySqlCommand command =new MySqlCommand($"INSERT INTO attrezzi(nome, colore, dimensione, quantita, peso, prezzo, marchio, materiale) VALUES ('{attrezzi.nome}','{attrezzi.colore}', '{attrezzi.dimensione}','{attrezzi.prezzo}','{attrezzi.quantita}','{attrezzi.materiale}',{attrezzi.marchio}','{attrezzi.peso}');", conn))
+                using(MySqlCommand command =new MySqlCommand($"INSERT INTO attrezzi(id_attrezzo, nome, colore, dimensione, marchio, peso, prezzo, quantita, materiale) VALUES ('{attrezzi.id_attrezzo}','{attrezzi.nome}','{attrezzi.colore}', '{attrezzi.dimensione}','{attrezzi.marchio}','{attrezzi.peso}','{attrezzi.prezzo}','{attrezzi.quantita}','{attrezzi.materiale}');", conn))
                 {
                     if(command.ExecuteNonQuery()>0)
                     {
@@ -188,58 +188,7 @@ namespace ConsoleApp1
             return (ret, ret2);
             
         }
-        //public (List<Attrezzi>, string) ListaAttrezzi(int id_attrezzo)
-        //{
-        //    List<Attrezzi> ret1 = new List<Attrezzi>();
-        //    string ret2 = "";
-        //    //string clause = "";
-
-        //    MySqlConnection conn = new MySqlConnection(connection_string);
-        //    try
-        //    {
-        //        conn.Open();
-        //        using (MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi ORDER BY id_attrezzo('{id_attrezzo}');"))
-        //        {
-        //            using(MySqlDataReader resultSet = command.ExecuteReader())
-        //            {
-        //                while(resultSet.Read())
-        //                {
-        //                    Attrezzi attrezzi = new Attrezzi()
-        //                    {
-        //                        id_attrezzo = (int)resultSet.GetUInt32(0),
-        //                        nome = resultSet.GetString(1),
-        //                        colore = resultSet.GetString(3),
-        //                        dimensione = resultSet.GetString(4),
-        //                        peso = resultSet.GetDouble(5),
-        //                        prezzo = resultSet.GetFloat(6),
-        //                        quantita = (int)resultSet.GetUInt32(7),
-        //                        marchio = resultSet.GetString(8),
-        //                        materiale = resultSet.GetString(9),
-        //                    };
-        //                    ret1.Add(attrezzi);
-        //                }
-        //            }
-        //        }
-        //        if(ret1.Count == 0)
-        //        {
-        //            throw new Exception("Nessun prodotto dispo");
-        //        }
-        //    }
-        //    catch(Exception e)
-        //    {
-        //        Console.WriteLine(e.ToString());
-        //        ret2 = e.Message;
-        //    }
-        //    finally
-        //    {
-        //        if(conn.State == ConnectionState.Open)
-        //        {
-        //            conn.Close();
-        //        }
-        //    }
-        //    return (ret1, ret2);
-
-        //}
+        
         public List<Attrezzi> FillListAttrezzi()
         {
             List<Attrezzi> attrezzi = new List<Attrezzi>();
@@ -283,10 +232,10 @@ namespace ConsoleApp1
             return attrezzi;
            
         }
-        public (Attrezzi, string) viewSpecificheattrezzi(int id_attrezzo)
+        public Attrezzi viewSpecificheattrezzi(int id_attrezzo)
         {
             Attrezzi ret = null;
-            string ret2 = "";
+           
             //connexion au database
             MySqlConnection conn = new MySqlConnection(connection_string);
             try
@@ -299,16 +248,16 @@ namespace ConsoleApp1
                     {
                         if(resultSet.Read())
                         {
-                            ret =new Attrezzi
+                            ret = new Attrezzi()
                             {
                                 id_attrezzo = (int)resultSet.GetUInt32(0),
                                 nome = resultSet.GetString(1),
                                 colore = resultSet.GetString(2),
                                 dimensione = resultSet.GetString(3),
-                                peso = resultSet.GetDouble(4),
-                                prezzo = resultSet.GetFloat(5),
-                                marchio = resultSet.GetString(7),
-                                quantita = (int)resultSet.GetUInt32(6),
+                                marchio = resultSet.GetString(4),
+                                peso = resultSet.GetDouble(5),
+                                prezzo = resultSet.GetFloat(6),
+                                quantita = (int)resultSet.GetUInt32(7),
                                 materiale = resultSet.GetString(8),
                             };
                             
@@ -326,7 +275,7 @@ namespace ConsoleApp1
             catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
-                ret2 = e.Message;
+            
             }
             finally
             {
@@ -335,7 +284,7 @@ namespace ConsoleApp1
                     conn.Close();
                 }
             }
-            return (ret, ret2);
+            return ret;
 
             
         }

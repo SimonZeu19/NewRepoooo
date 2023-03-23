@@ -8,62 +8,68 @@ namespace WebApplication1.Models
 {
     public class AddAttrezzi
     {
-        //public ServiceReference1.IService1 toIntenalAttrezzi()
-        //{
-        //    try
-        //    {
-        //        return new ServiceReference1.Attrezzi()
-        //        {
-        //            brand = brand,
-        //            model = model,
-        //            cpu = cpu,
-        //            storage = storage,
-        //            battery = battery,
-        //            ram = ram,
-        //            os = os,
-        //            camera = camera,
-        //            display = display,
-        //            sim_count = sim_count,
-        //            price = price,
-        //            quantity = quantity,
-        //        };
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
+        public ConsoleApp1.Classi.Attrezzi toClassi()
+        {
+            ConsoleApp1.Classi.Attrezzi att = new ConsoleApp1.Classi.Attrezzi()
+            {
+                id_attrezzo=this.id_attrezzo,
+                nome = this.nome,
+                colore = this.colore,
+                dimensione = this.dimensione,
+                marchio = this.marchio,
+                peso = this.peso,
+                prezzo = this.prezzo,
+                quantita = this.quantita,
+                materiale = this.materiale,
 
-        [Display(Name = "Immagine")]
-        [Required(ErrorMessage = "Immagine richiesta")]
-        [DataType(DataType.Upload)]
-        public HttpPostedFileBase image_file { get; set; }
+            };
 
-        [Display(Name = "Marca")]
-        [Required(ErrorMessage = "Marca richiesta")]
-        [MaxLength(254, ErrorMessage = "La marca non può essere più lunga di {1} caratteri")]
-        public string brand { get; set; }
+            return att;
+        }
 
-        [Display(Name = "Modello")]
-        [Required(ErrorMessage = "Modello richiesto")]
-        [MaxLength(254, ErrorMessage = "Il modello non può essere più lungo di {1} caratteri")]
-        public string model { get; set; }
+
+        //[Display(Name = "Immagine")]
+        //[Required(ErrorMessage = "Immagine richiesta")]
+        //[DataType(DataType.Upload)]
+        //public HttpPostedFileBase image_file { get; set; }
+
+        [Display(Name = "Id")]
+        [Required(ErrorMessage = "id richiesta")]
+       
+        public int id_attrezzo { get; set; }
+
+        [Display(Name = "Nome")]
+        [Required(ErrorMessage = "Nome richiesto")]
+       
+        public string nome { get; set; }
 
         [Display(Name = "Colore")]
         [Required(ErrorMessage = "Colore attrezzo richiesta")]
-        public double display { get; set; }
+        public string colore { get; set; }
+
+        [Display(Name = "Dimensione")]
+        [Required(ErrorMessage = "Dimensione attrezzo richiesto")]
+        public string dimensione { get; set; }
+
+        [Display(Name = "Marchio")]
+        [Required(ErrorMessage = "marchio richiesto")]
+        public string marchio { get; set; }
 
         [Display(Name = "Peso")]
-        [Required(ErrorMessage = "Peso attrezzo richiesto")]
-        public int sim_count { get; set; }
+        [Required(ErrorMessage = "peso richiesto")]
+        public double peso { get; set; }
 
         [Display(Name = "Prezzo")]
-        [Required(ErrorMessage = "Prezzo richiesto")]
-        public decimal price { get; set; }
+        [Required(ErrorMessage = "prezzo richiesto")]
+        public float prezzo { get; set; }
 
-        [Display(Name = "Pezzi Disponibili")]
-        [Required(ErrorMessage = "Numero pezzi richiesto")]
-        public int quantity { get; set; }
+        [Display(Name = "quantità")]
+        [Required(ErrorMessage = "quantita richiesta")]
+        public int quantita{ get; set; }
+
+        [Display(Name = "Materiale")]
+        [Required(ErrorMessage = "materiale richiesto")]
+        public string materiale { get; set; }
 
     }
 }
