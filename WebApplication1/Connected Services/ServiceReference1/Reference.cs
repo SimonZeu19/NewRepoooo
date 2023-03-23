@@ -39,11 +39,11 @@ namespace WebApplication1.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillListAttrezzi", ReplyAction="http://tempuri.org/IService1/FillListAttrezziResponse")]
         System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi[]> FillListAttrezziAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Addattrezzi", ReplyAction="http://tempuri.org/IService1/AddattrezziResponse")]
-        System.ValueTuple<int, string> Addattrezzi(ConsoleApp1.Classi.Attrezzi attrezzi);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAttrezzi", ReplyAction="http://tempuri.org/IService1/AddAttrezziResponse")]
+        System.ValueTuple<int, string> AddAttrezzi(ConsoleApp1.Classi.Attrezzi attrezzi);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Addattrezzi", ReplyAction="http://tempuri.org/IService1/AddattrezziResponse")]
-        System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddattrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAttrezzi", ReplyAction="http://tempuri.org/IService1/AddAttrezziResponse")]
+        System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddAttrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/viewSpecificheattrezzi", ReplyAction="http://tempuri.org/IService1/viewSpecificheattrezziResponse")]
         ConsoleApp1.Classi.Attrezzi viewSpecificheattrezzi(int id_attrezzo);
@@ -153,12 +153,12 @@ namespace WebApplication1.ServiceReference1 {
             return base.Channel.FillListAttrezziAsync();
         }
         
-        public System.ValueTuple<int, string> Addattrezzi(ConsoleApp1.Classi.Attrezzi attrezzi) {
-            return base.Channel.Addattrezzi(attrezzi);
+        public System.ValueTuple<int, string> AddAttrezzi(ConsoleApp1.Classi.Attrezzi attrezzi) {
+            return base.Channel.AddAttrezzi(attrezzi);
         }
         
-        public System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddattrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi) {
-            return base.Channel.AddattrezziAsync(attrezzi);
+        public System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddAttrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi) {
+            return base.Channel.AddAttrezziAsync(attrezzi);
         }
         
         public ConsoleApp1.Classi.Attrezzi viewSpecificheattrezzi(int id_attrezzo) {

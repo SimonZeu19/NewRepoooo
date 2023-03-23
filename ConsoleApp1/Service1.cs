@@ -152,7 +152,7 @@ namespace ConsoleApp1
 
         
     }
-        public (int, string) Addattrezzi(Attrezzi attrezzi)
+        public (int, string) AddAttrezzi(Attrezzi attrezzi)
         {
             int ret = -1;
             string ret2 = "";
@@ -342,13 +342,13 @@ namespace ConsoleApp1
                             available = (int)resultSet.GetUInt32(1);
                             if(quntita>available)
                             {
-                                throw new Exception("La quantita suppera i numero di pessi disponibile");
+                                throw new Exception("La quantita suppera i numero di pezzi disponibile");
                             }
                             
                         }
                         else
                         {
-                             throw new Exception("il prodotto selezionato non esite");
+                             throw new Exception("il prodotto selezionato non esiste");
                         }
                     }
                     
@@ -363,7 +363,7 @@ namespace ConsoleApp1
                         }
                         else
                         {
-                            throw new Exception("Aggiunta al carrello fallito");
+                            throw new Exception("Aggiunta al carrello fallita");
                         }
                     }
                 }
@@ -377,7 +377,7 @@ namespace ConsoleApp1
                         }
                         else
                         {
-                            throw new Exception("Aggiunta al carrello fallito");
+                            throw new Exception("Aggiunta al carrello fallita");
                         }
                     }
                 }

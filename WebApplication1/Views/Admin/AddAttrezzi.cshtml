@@ -8,7 +8,7 @@
 <h2> Aggiungere Attrezzi</h2>
 
 
-@using (Html.BeginForm("Attrezzi", "AddAttrezzi", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Attrezzi", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 @Html.AntiForgeryToken()
 
@@ -101,7 +101,7 @@
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Aggiungi" class="btn btn-warning" />
-                            <button type="button" onclick="location.href'@Url.Action("Attrezzi", "Attrezzi")'"> Ritornare alla lista attrezzi</button>
+                            <button type="button" onclick="location.href'@Url.Action("Admin", "AddAttrezzi")'"> Ritornare alla lista attrezzi</button>
                         </div>
                     </div>
                 </div>}
