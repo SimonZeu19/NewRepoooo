@@ -16,20 +16,14 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-       
-        public ActionResult Attrezzi()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        public ActionResult Attrezzi(int id_attrezzo)
-        {
-            var wcf = new ServiceReference1.Service1Client();
+        public ActionResult Attrezzi() {
+            var result = wcf.FillListAttrezzi();
             List<Attrezzi> attrezzi = new List<Attrezzi>();
-            
-           
-            return View("Attrezzi");
+            foreach (ConsoleApp1.Classi.Attrezzi attrezzo in result) {
+                attrezzi.Add(Models.Attrezzi.fromClassi(attrezzo));
+            }
+            return View("Attrezzi", attrezzi);
         }
 
         public ActionResult SpecificheAttrezzi()
@@ -46,5 +40,6 @@ namespace WebApplication1.Controllers
           return View();
 
         }
+        
     }
 }

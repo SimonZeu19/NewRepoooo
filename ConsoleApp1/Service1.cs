@@ -193,7 +193,7 @@ namespace ConsoleApp1
         //    List<Attrezzi> ret1 = new List<Attrezzi>();
         //    string ret2 = "";
         //    //string clause = "";
-            
+
         //    MySqlConnection conn = new MySqlConnection(connection_string);
         //    try
         //    {
@@ -238,12 +238,11 @@ namespace ConsoleApp1
         //        }
         //    }
         //    return (ret1, ret2);
-           
+
         //}
-        public Attrezzi FillListAttrezzi()
+        public List<Attrezzi> FillListAttrezzi()
         {
-            Attrezzi attrezzo = new Attrezzi();
-            attrezzo.listattrezzi = new List<Attrezzi>();
+            List<Attrezzi> attrezzi = new List<Attrezzi>();
 
             MySqlConnection conn = new MySqlConnection(connection_string);
             try
@@ -253,7 +252,7 @@ namespace ConsoleApp1
                 {
                     using (MySqlCommand insert = conn.CreateCommand())
                     {
-                        insert.CommandText = "SELECT * FROM Cinema";
+                        insert.CommandText = "SELECT * FROM attrezzi";
                         var result = insert.ExecuteReader();
                         while (result.Read())
                         {
@@ -267,11 +266,11 @@ namespace ConsoleApp1
                             a.materiale = result["materiale"].ToString();
                             a.prezzo = Convert.ToSingle(result["Prezzo"]);
                             a.quantita = Convert.ToInt32(result["quantita"]);
-                            attrezzo.listattrezzi.Add(a);
+                            attrezzi.Add(a);
                         }
                         conn.Close();
                         conn.Dispose();
-                        return attrezzo;
+                        return attrezzi;
                     }
                 }
 
@@ -281,7 +280,7 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Errore: {0}", ex.Message);
             }
-            return null;
+            return attrezzi;
            
         }
         public (Attrezzi, string) viewSpecificheattrezzi(int id_attrezzo)

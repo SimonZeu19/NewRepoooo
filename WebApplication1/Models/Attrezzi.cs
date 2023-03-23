@@ -8,11 +8,29 @@ namespace WebApplication1.Models
 {
     public class Attrezzi
     {
-        
+        public static Attrezzi fromClassi(ConsoleApp1.Classi.Attrezzi source)
+        {
+            Attrezzi att = new Attrezzi()
+            {
+                id_attrezzo = source.id_attrezzo,
 
+                img_url = $"/Images/{source.id_attrezzo}.jpg",
+                nome = source.nome,
+                colore = source.colore,
+                dimensione = source.dimensione,
+                marchio = source.marchio,
+                peso = source.peso,
+                prezzo = source.prezzo,
+                quantita = source.quantita,
+                materiale = source.materiale,
+
+            };
+
+            return att;
+        }
         public int id_attrezzo { get; set; }
 
-      //  public string img_url { get; set; }
+        public string img_url { get; set; }
 
         public string nome { get; set; }
 
@@ -28,7 +46,7 @@ namespace WebApplication1.Models
 
         public int quantita { get; set; }
 
-        public int materiale { get; set; }
+        public string materiale { get; set; }
 
 
 

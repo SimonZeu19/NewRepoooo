@@ -24,7 +24,7 @@ namespace ConsoleApp1
         //(List<Attrezzi>, string) ListaAttrezzi(int id_attrezzo);
         //[OperationContract]
         
-        Attrezzi FillListAttrezzi();
+        List<Attrezzi> FillListAttrezzi();
         [OperationContract]
         (int ,string) Addattrezzi(Attrezzi attrezzi);
         [OperationContract]

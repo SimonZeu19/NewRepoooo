@@ -34,10 +34,10 @@ namespace WebApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginAdminAsync(ConsoleApp1.Classi.Utenti utenti);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillListAttrezzi", ReplyAction="http://tempuri.org/IService1/FillListAttrezziResponse")]
-        ConsoleApp1.Classi.Attrezzi FillListAttrezzi();
+        ConsoleApp1.Classi.Attrezzi[] FillListAttrezzi();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillListAttrezzi", ReplyAction="http://tempuri.org/IService1/FillListAttrezziResponse")]
-        System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi> FillListAttrezziAsync();
+        System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi[]> FillListAttrezziAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Addattrezzi", ReplyAction="http://tempuri.org/IService1/AddattrezziResponse")]
         System.ValueTuple<int, string> Addattrezzi(ConsoleApp1.Classi.Attrezzi attrezzi);
@@ -145,11 +145,11 @@ namespace WebApplication1.ServiceReference1 {
             return base.Channel.LoginAdminAsync(utenti);
         }
         
-        public ConsoleApp1.Classi.Attrezzi FillListAttrezzi() {
+        public ConsoleApp1.Classi.Attrezzi[] FillListAttrezzi() {
             return base.Channel.FillListAttrezzi();
         }
         
-        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi> FillListAttrezziAsync() {
+        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi[]> FillListAttrezziAsync() {
             return base.Channel.FillListAttrezziAsync();
         }
         

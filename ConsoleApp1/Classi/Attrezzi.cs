@@ -25,9 +25,5 @@ namespace ConsoleApp1.Classi
         public int quantita { get; set; }
 
         public string materiale { get; set; }
-        public List<Attrezzi> listattrezzi { get; set; }
-        // List<Attrezzi> listattrezzi { get; set; }
-
-
     }
 }
