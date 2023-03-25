@@ -52,6 +52,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult AddAttrezzi(AddAttrezzi attrezzi)
         {
+<<<<<<< Updated upstream
             ConsoleApp1.Classi.Attrezzi at = attrezzi.toInternalAttrezzi();
             if (at == null)
             {
@@ -69,6 +70,38 @@ namespace WebApplication1.Controllers
             }
             return View("Attrezzi","Admin");
 
+=======
+            try
+            {
+                //pagina nella quale l' utente inserisce i dati per la registrazione
+                string l = "Aggiunta Attrezzo avvenuta con successo!";
+                Attrezzi ut = new Attrezzi();
+
+                ut.id_attrezzo = attrezzi.id_attrezzo;
+                ut.nome = attrezzi.nome;
+                ut.colore = attrezzi.colore;
+                ut.dimensione = attrezzi.dimensione;
+                ut.marchio = attrezzi.marchio;
+                ut.peso = attrezzi.peso;
+                ut.prezzo = attrezzi.prezzo;
+                ut.quantita = attrezzi.quantita;
+                ut.materiale = attrezzi.materiale;
+
+                var risultato = wcf.Addattrezzi(ut);
+                if (risultato == null) throw new Exception("Registrazione fallita");
+                Session["utenteAttivo"] = risultato;
+                MessageBox.Show(l);
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("LogOnError", e.Message);
+                return View();
+            }
+        }
+        var result = wcf.Addattrezzi(attrezzi.toClassi());
+            return RedirectToAction("Attrezzi",result);
+>>>>>>> Stashed changes
         }
       
 
