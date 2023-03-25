@@ -49,65 +49,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult AddAttrezzi(AddAttrezzi attrezzi)
-        {
-            ConsoleApp1.Classi.Attrezzi at = attrezzi.toInternalAttrezzi();
-            if (at == null)
-            {
-                ModelState.AddModelError("", "Si è verificato un errore durante la creazione dell' attrezzo");
-                return View();
-
-
-            }
-
-            var attre = wcf.AddAttrezzi(at);
-            if (attre.Equals(-1))
-            {
-
-                return View(attre);
-            }
-            return View("Attrezzi","Admin");
-
-        }
-      
-
-
-
-
-
-
-
-
-
-
-            //try
-            //{
-            //    //pagina nella quale l' utente inserisce i dati per la registrazione
-            //    string l = "Regitrazione avvenuta con successo!";
-            //    Attrezzi att = new Attrezzi();
-
-            //    att.id_attrezzo = attrezzi.id_attrezzo;
-            //    att.nome = attrezzi.nome;
-            //    att.colore = attrezzi.colore;
-            //    att.dimensione = attrezzi.dimensione;
-            //    att.marchio = attrezzi.marchio;
-            //    att.peso = attrezzi.peso;
-            //    att.prezzo = attrezzi.prezzo; ;   
-            //    att.quantita = attrezzi.quantita;
-            //    att.materiale = attrezzi.materiale;
-
-            //    var risultato = wcf.AddAttrezzi(att);
-            //    if (risultato == null) throw new Exception("Registrazione fallita");
-            //    Session["utenteAttivo"] = risultato;
-            //    MessageBox.Show(l);
-            //    return RedirectToAction("Index");
-            //}
-            //catch (Exception e)
-            //{
-            //    ModelState.AddModelError("LogOnError", e.Message);
-            //    return View();
-            //}
         
     
     }

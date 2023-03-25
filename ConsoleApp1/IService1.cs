@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.Classi;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,19 +15,14 @@ namespace ConsoleApp1
     public interface IService1
     {
         [OperationContract]
-        //string Registrazione(string nome, string cognome, string codicefiscale, System.DateTime datanascita,string email,string username, string password);
         Utenti Registrazione(Utenti utente);
         [OperationContract]
         Utenti LoginUtente(Utenti utente);
         [OperationContract]
-        //Utenti LoginAdmin(Utenti utenti);
-        //[OperationContract]
-        //(List<Attrezzi>, string) ListaAttrezzi(int id_attrezzo);
-        //[OperationContract]
-        
         List<Attrezzi> FillListAttrezzi();
         [OperationContract]
         Attrezzi AddAttrezzi(Attrezzi attrezzi);
+        (int, string) Addattrezzi(Attrezzi attrezzi);
         [OperationContract]
         Attrezzi viewSpecificheattrezzi(int id_attrezzo);
         [OperationContract]
@@ -45,7 +41,6 @@ namespace ConsoleApp1
 
         [OperationContract]
         (bool, string) Buy(int id_utente, string indirizzoresidenza, string codicepromo, string cartacredoto);
-
-
+        void ConfigureServices(ServiceCollection services);
     }
 }

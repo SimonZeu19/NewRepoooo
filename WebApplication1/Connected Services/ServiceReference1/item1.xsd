@@ -28,6 +28,7 @@
       <xs:element minOccurs="0" name="colore" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="dimensione" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="id_attrezzo" type="xs:int" />
+      <xs:element minOccurs="0" name="img_url" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="marchio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="materiale" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
@@ -45,9 +46,9 @@
   <xs:element name="ArrayOfCarrello" nillable="true" type="tns:ArrayOfCarrello" />
   <xs:complexType name="Carrello">
     <xs:sequence>
+      <xs:element minOccurs="0" name="attrezzo" nillable="true" type="tns:Attrezzi" />
       <xs:element minOccurs="0" name="id_attrezzo" type="xs:int" />
       <xs:element minOccurs="0" name="id_carrello" type="xs:int" />
-      <xs:element minOccurs="0" name="id_utente" type="xs:int" />
       <xs:element minOccurs="0" name="quantita" type="xs:int" />
     </xs:sequence>
   </xs:complexType>

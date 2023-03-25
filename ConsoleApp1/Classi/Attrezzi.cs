@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ConsoleApp1.Classi
 {
    public class Attrezzi
     {
+        [Key]
         public int id_attrezzo { get; set; }
+
+        [Display(Name = "Product Picture URL")]
+        public string img_url { get; set; }
 
         public string nome { get; set; }
 

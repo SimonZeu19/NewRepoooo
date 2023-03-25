@@ -1,8 +1,6 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+
 
 namespace WebApplication1.Models
 {
@@ -13,14 +11,13 @@ namespace WebApplication1.Models
             Attrezzi att = new Attrezzi()
             {
                 id_attrezzo = source.id_attrezzo,
-
-                img_url = $"/Images/{source.id_attrezzo}.jpg",
+                prodotto = $"/Images/{source.id_attrezzo}.jpg",
                 nome = source.nome,
                 colore = source.colore,
                 dimensione = source.dimensione,
                 marchio = source.marchio,
                 peso = source.peso,
-                prezzo = source.prezzo,
+                prezzo = (decimal)source.prezzo,
                 quantita = source.quantita,
                 materiale = source.materiale,
 
@@ -29,9 +26,7 @@ namespace WebApplication1.Models
             return att;
         }
         public int id_attrezzo { get; set; }
-
-        public string img_url { get; set; }
-
+        public string prodotto { get; set; }
         public string nome { get; set; }
 
         public string colore { get; set; }
@@ -42,13 +37,11 @@ namespace WebApplication1.Models
 
         public double peso { get; set; }
 
-        public float prezzo { get; set; }
+        public decimal prezzo { get; set; }
 
         public int quantita { get; set; }
 
         public string materiale { get; set; }
-
-
 
         public List<Attrezzi> Attrezzo { set; get; }
         

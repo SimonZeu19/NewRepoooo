@@ -19,18 +19,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Utente-ShopPale-CPanel", "Index", "Utente", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("eShop-User", "Index", "Utente", new { area = "" }, new { @class = "navbar-brand" })
 
             </div>
             <div class="navbar-collapse collapse">
 
                 <ul class="nav navbar-nav">
 
-                    <li>@Html.ActionLink("Dashboard", "Utente_Dashboard", "Utente")</li>
-                    <li>@Html.ActionLink("Utente-ShopPale-CPanel", "Index", "Utente")</li>
-                    <li>@Html.ActionLink("Attrezzi", "Attrezzi", "Index")</li>
+                    <li>@Html.ActionLink("Homepage", "Index", "Utente")</li>
+                    <li>@Html.ActionLink("Prodotti","Attrezzi", "Utente")</li>
+
                     <li>@Html.ActionLink("Carrello", "Carrello", "Utente")</li>
-                    <li>@Html.ActionLink("Logout", "Logout", "Index")</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Utente")</li>
 
 
 
@@ -51,5 +51,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
 </body>
 </html>

@@ -1,18 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace WebApplication1.Models
+﻿namespace WebApplication1.Models
 {
     public class Carrello
     {
-        public int id_carrello { get; set; }
 
-        public int id_attrezzo { get; set; }
+        // Conversion helper function
+        public static Carrello fromClassi(ConsoleApp1.Classi.Carrello src)
+        {
+            return new Carrello()
+            {
+                cart_id = src.id_carrello,
+                attrezzo = Attrezzi.fromClassi( src.attrezzo),
+                quantity = src.quantita
+            };
+        }
 
-        public int id_utente { get; set; }
+        public int cart_id { get; set; }
 
-        public int quantita { get; set; }
+        public Attrezzi attrezzo { get; set; }
+
+        public int quantity { get; set; }
     }
 }

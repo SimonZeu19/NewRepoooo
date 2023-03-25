@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace ConsoleApp1.Classi
 {
@@ -12,8 +8,12 @@ namespace ConsoleApp1.Classi
 
         public int id_attrezzo { get; set; }
 
-        public int id_utente { get; set; }
+        public Attrezzi attrezzo { get; set; }
 
         public int quantita { get; set; }
+
+        
+
+        
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ConsoleApp1
 {
@@ -29,6 +31,9 @@ namespace ConsoleApp1
                 Console.WriteLine("ERROR: {0}", ex.Message);
                   
             }
+
+
+
         }
     }
 }

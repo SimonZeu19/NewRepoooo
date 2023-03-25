@@ -1,0 +1,86 @@
+﻿@model WebApplication1.Models.SpecificheAttrezzi
+
+@{
+    ViewBag.Title = "SpecificheAttrezzi";
+    Layout = "~/Views/Shared/_LayoutUtente.cshtml";
+}
+
+<h2>SpecificheAttrezzi</h2>
+
+
+<div class=" panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Specifiche Attrezzi</h3>
+    </div>
+    <div class="panel-body">
+        
+
+
+
+        <table class="table table-striped table-hover">
+          
+          
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(model => model.nome)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.nome)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(model => model.colore)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.colore)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(model => model.dimensione)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.dimensione)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(model => model.marchio)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.marchio)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(model => model.peso)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.peso)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(model => model.prezzo)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.prezzo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(model => model.materiale)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.materiale)
+                </td>
+            </tr>
+
+
+        </table>
+
+    </div>
+
+</div>
+

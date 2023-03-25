@@ -8,15 +8,19 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using System.Data.SqlClient;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
+
 
 namespace ConsoleApp1
 {
     // NOTA: è possibile utilizzare il comando "Rinomina" del menu "Refactoring" per modificare il nome di classe "Service1" nel codice e nel file di configurazione contemporaneamente.
     public class Service1 : IService1
     {
-        
-         private static string connection_string = "datasource=localhost;port=3306;username=root;password=;database=shoppale;";
+    // String to initiate the connection to the database shoppale         
+        private static string connection_string = "datasource=localhost;port=3306;username=root;password=;database=shoppale;Convert Zero Datetime=True;";
+
         public Utenti Registrazione(Utenti utente)
         {
             MySqlConnection conn = new MySqlConnection(connection_string);
@@ -91,9 +95,7 @@ namespace ConsoleApp1
 
 
                             };
-                            //Console.WriteLine("login ok");
-                            //conn.Close();
-                            //return utente;
+                       
                             
                         }
                         else
@@ -118,40 +120,7 @@ namespace ConsoleApp1
             return ret;
            
         }
-    //    public Utenti LoginAdmin(Utenti utente)
-    //    {
 
-    //        MySqlConnection conn = new MySqlConnection(connection_string);
-
-    //        try
-    //        {
-    //            conn.Open();
-    //            using (MySqlCommand command = new MySqlCommand($"SELECT * FROM utenti WHERE email='{utente.username}'AND password='{utente.password}' Limit 1;", conn))
-    //            {
-    //                using (MySqlDataReader resultSet = command.ExecuteReader())
-    //                {
-    //                    if (resultSet.Read())
-    //                    {
-    //                        Console.WriteLine("login ok");
-    //                        conn.Close();
-    //                        return utente;
-    //                    }
-    //                    else
-    //                    {
-    //                        throw new Exception("dati inseriti sbagliati");
-    //                    }
-    //                }
-    //            }
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            Console.WriteLine(e.ToString());
-    //            return null;
-    //        }
-
-
-        
-    //}
         public Attrezzi AddAttrezzi(Attrezzi attrezzi)
         {
             int ret = 0;
@@ -678,6 +647,16 @@ namespace ConsoleApp1
             return (ret, ret2);
         }
 
-        
+       
+
+        public void ConfigureServices(ServiceCollection services)
+        {
+            throw new NotImplementedException();
+        }
+
+        public (int, string) Addattrezzi(Attrezzi attrezzi)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
