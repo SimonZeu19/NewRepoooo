@@ -26,11 +26,9 @@ namespace ConsoleApp1
         
         List<Attrezzi> FillListAttrezzi();
         [OperationContract]
-<<<<<<< Updated upstream
+
         Attrezzi AddAttrezzi(Attrezzi attrezzi);
-=======
-        (int, string) Addattrezzi(Attrezzi attrezzi);
->>>>>>> Stashed changes
+
         [OperationContract]
         Attrezzi viewSpecificheattrezzi(int id_attrezzo);
         [OperationContract]
