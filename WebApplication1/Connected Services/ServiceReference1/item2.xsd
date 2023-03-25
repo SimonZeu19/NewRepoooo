@@ -30,20 +30,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="LoginAdmin">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="utenti" nillable="true" type="q5:Utenti" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LoginAdminResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="LoginAdminResult" nillable="true" type="q6:Utenti" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="FillListAttrezzi">
     <xs:complexType>
       <xs:sequence />
@@ -52,21 +38,21 @@
   <xs:element name="FillListAttrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="FillListAttrezziResult" nillable="true" type="q7:ArrayOfAttrezzi" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="FillListAttrezziResult" nillable="true" type="q5:ArrayOfAttrezzi" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddAttrezzi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="attrezzi" nillable="true" type="q8:Attrezzi" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="attrezzi" nillable="true" type="q6:Attrezzi" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddAttrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="AddAttrezziResult" type="q9:ValueTupleOfintstring" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="AddAttrezziResult" nillable="true" type="q7:Attrezzi" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -80,7 +66,7 @@
   <xs:element name="viewSpecificheattrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="viewSpecificheattrezziResult" nillable="true" type="q10:Attrezzi" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ConsoleApp1.Classi" minOccurs="0" name="viewSpecificheattrezziResult" nillable="true" type="q8:Attrezzi" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -96,7 +82,7 @@
   <xs:element name="crearecarrelloResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="crearecarrelloResult" type="q11:ValueTupleOfbooleanstring" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="crearecarrelloResult" type="q9:ValueTupleOfbooleanstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -110,7 +96,7 @@
   <xs:element name="RemoveattrezziResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RemoveattrezziResult" type="q12:ValueTupleOfbooleanstring" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RemoveattrezziResult" type="q10:ValueTupleOfbooleanstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,7 +110,7 @@
   <xs:element name="ViewCarrelloResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewCarrelloResult" type="q13:ValueTupleOfArrayOfCarrellostringsi3MSdzS" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewCarrelloResult" type="q11:ValueTupleOfArrayOfCarrellostringsi3MSdzS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -138,7 +124,7 @@
   <xs:element name="RemovecarrelloResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RemovecarrelloResult" type="q14:ValueTupleOfbooleanstring" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RemovecarrelloResult" type="q12:ValueTupleOfbooleanstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -152,7 +138,7 @@
   <xs:element name="ViewUtentiResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewUtentiResult" type="q15:ValueTupleOfArrayOfUtentistringsi3MSdzS" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewUtentiResult" type="q13:ValueTupleOfArrayOfUtentistringsi3MSdzS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -166,7 +152,7 @@
   <xs:element name="ViewVenditeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewVenditeResult" type="q16:ValueTupleOfArrayOfVenditestringsi3MSdzS" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewVenditeResult" type="q14:ValueTupleOfArrayOfVenditestringsi3MSdzS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -183,7 +169,7 @@
   <xs:element name="BuyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="BuyResult" type="q17:ValueTupleOfbooleanstring" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="BuyResult" type="q15:ValueTupleOfbooleanstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -27,12 +27,6 @@ namespace WebApplication1.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginUtente", ReplyAction="http://tempuri.org/IService1/LoginUtenteResponse")]
         System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginUtenteAsync(ConsoleApp1.Classi.Utenti utente);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginAdmin", ReplyAction="http://tempuri.org/IService1/LoginAdminResponse")]
-        ConsoleApp1.Classi.Utenti LoginAdmin(ConsoleApp1.Classi.Utenti utenti);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginAdmin", ReplyAction="http://tempuri.org/IService1/LoginAdminResponse")]
-        System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginAdminAsync(ConsoleApp1.Classi.Utenti utenti);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillListAttrezzi", ReplyAction="http://tempuri.org/IService1/FillListAttrezziResponse")]
         ConsoleApp1.Classi.Attrezzi[] FillListAttrezzi();
         
@@ -40,10 +34,10 @@ namespace WebApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi[]> FillListAttrezziAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAttrezzi", ReplyAction="http://tempuri.org/IService1/AddAttrezziResponse")]
-        System.ValueTuple<int, string> AddAttrezzi(ConsoleApp1.Classi.Attrezzi attrezzi);
+        ConsoleApp1.Classi.Attrezzi AddAttrezzi(ConsoleApp1.Classi.Attrezzi attrezzi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAttrezzi", ReplyAction="http://tempuri.org/IService1/AddAttrezziResponse")]
-        System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddAttrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi);
+        System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi> AddAttrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/viewSpecificheattrezzi", ReplyAction="http://tempuri.org/IService1/viewSpecificheattrezziResponse")]
         ConsoleApp1.Classi.Attrezzi viewSpecificheattrezzi(int id_attrezzo);
@@ -137,14 +131,6 @@ namespace WebApplication1.ServiceReference1 {
             return base.Channel.LoginUtenteAsync(utente);
         }
         
-        public ConsoleApp1.Classi.Utenti LoginAdmin(ConsoleApp1.Classi.Utenti utenti) {
-            return base.Channel.LoginAdmin(utenti);
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti> LoginAdminAsync(ConsoleApp1.Classi.Utenti utenti) {
-            return base.Channel.LoginAdminAsync(utenti);
-        }
-        
         public ConsoleApp1.Classi.Attrezzi[] FillListAttrezzi() {
             return base.Channel.FillListAttrezzi();
         }
@@ -153,11 +139,11 @@ namespace WebApplication1.ServiceReference1 {
             return base.Channel.FillListAttrezziAsync();
         }
         
-        public System.ValueTuple<int, string> AddAttrezzi(ConsoleApp1.Classi.Attrezzi attrezzi) {
+        public ConsoleApp1.Classi.Attrezzi AddAttrezzi(ConsoleApp1.Classi.Attrezzi attrezzi) {
             return base.Channel.AddAttrezzi(attrezzi);
         }
         
-        public System.Threading.Tasks.Task<System.ValueTuple<int, string>> AddAttrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi) {
+        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi> AddAttrezziAsync(ConsoleApp1.Classi.Attrezzi attrezzi) {
             return base.Channel.AddAttrezziAsync(attrezzi);
         }
         

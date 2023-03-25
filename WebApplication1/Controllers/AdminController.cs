@@ -21,6 +21,7 @@ namespace WebApplication1.Controllers
         public ActionResult Attrezzi() {
             var result = wcf.FillListAttrezzi();
             List<Attrezzi> attrezzi = new List<Attrezzi>();
+
             foreach (ConsoleApp1.Classi.Attrezzi attrezzo in result) {
                 attrezzi.Add(Models.Attrezzi.fromClassi(attrezzo));
             }
@@ -31,44 +32,87 @@ namespace WebApplication1.Controllers
         {
 
             var result = wcf.viewSpecificheattrezzi(id_attrezzo);
-           // Attrezzi att = new Attrezzi();
+            // Attrezzi att = new Attrezzi();
             if (result != null)
             {
-                
+
                 return View("SpecificheAttrezzi", Models.SpecificheAttrezzi.fromClassi(result));
             }
-          
+
             else return HttpNotFound();
+        }
+
+        public ActionResult AddAttrezzi()
+        {
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddAttrezzi(AddAttrezzi attrezzi)
+        {
+            ConsoleApp1.Classi.Attrezzi at = attrezzi.toInternalAttrezzi();
+            if (at == null)
+            {
+                ModelState.AddModelError("", "Si è verificato un errore durante la creazione dell' attrezzo");
+                return View();
+
+
+            }
+
+            var attre = wcf.AddAttrezzi(at);
+            if (attre.Equals(-1))
+            {
+
+                return View(attre);
+            }
+            return View("Attrezzi","Admin");
+
         }
       
 
-        [HttpPost]
-        public ActionResult AddAttrezzi(Attrezzi attrezzi)
-
-        {
-            try
-            {
-                //        // pagina nella quale l' utente inserisce i dati per l'aggiunta del nuovo attrezzo 
-                //        string l = "Aggiunta Attrezzo avvenuta con successo!";
-                Attrezzi ut = new Attrezzi();
-
-                ut.id_attrezzo = attrezzi.id_attrezzo;
-                ut.nome = attrezzi.nome;
-                ut.colore = attrezzi.colore;
-                ut.dimensione = attrezzi.dimensione;
-                ut.marchio = attrezzi.marchio;
-                ut.peso = attrezzi.peso;
-                ut.prezzo = attrezzi.prezzo;
-                ut.quantita = attrezzi.quantita;
-                ut.materiale = attrezzi.materiale;
-
-                var risultato = wcf.Addattrezzi(ut);
 
 
-                return RedirectToAction("Attrezzi", risultato);
-            }
-            catch { 
-            }
-         }
+
+
+
+
+
+
+
+            //try
+            //{
+            //    //pagina nella quale l' utente inserisce i dati per la registrazione
+            //    string l = "Regitrazione avvenuta con successo!";
+            //    Attrezzi att = new Attrezzi();
+
+            //    att.id_attrezzo = attrezzi.id_attrezzo;
+            //    att.nome = attrezzi.nome;
+            //    att.colore = attrezzi.colore;
+            //    att.dimensione = attrezzi.dimensione;
+            //    att.marchio = attrezzi.marchio;
+            //    att.peso = attrezzi.peso;
+            //    att.prezzo = attrezzi.prezzo; ;   
+            //    att.quantita = attrezzi.quantita;
+            //    att.materiale = attrezzi.materiale;
+
+            //    var risultato = wcf.AddAttrezzi(att);
+            //    if (risultato == null) throw new Exception("Registrazione fallita");
+            //    Session["utenteAttivo"] = risultato;
+            //    MessageBox.Show(l);
+            //    return RedirectToAction("Index");
+            //}
+            //catch (Exception e)
+            //{
+            //    ModelState.AddModelError("LogOnError", e.Message);
+            //    return View();
+            //}
+        
+    
     }
+
+    
+
+     
 }

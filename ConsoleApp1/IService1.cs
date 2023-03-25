@@ -19,14 +19,14 @@ namespace ConsoleApp1
         [OperationContract]
         Utenti LoginUtente(Utenti utente);
         [OperationContract]
-        Utenti LoginAdmin(Utenti utenti);
-        [OperationContract]
+        //Utenti LoginAdmin(Utenti utenti);
+        //[OperationContract]
         //(List<Attrezzi>, string) ListaAttrezzi(int id_attrezzo);
         //[OperationContract]
         
         List<Attrezzi> FillListAttrezzi();
         [OperationContract]
-        (int ,string) AddAttrezzi(Attrezzi attrezzi);
+        Attrezzi AddAttrezzi(Attrezzi attrezzi);
         [OperationContract]
         Attrezzi viewSpecificheattrezzi(int id_attrezzo);
         [OperationContract]

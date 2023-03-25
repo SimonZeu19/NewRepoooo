@@ -118,43 +118,43 @@ namespace ConsoleApp1
             return ret;
            
         }
-        public Utenti LoginAdmin(Utenti utente)
-        {
+    //    public Utenti LoginAdmin(Utenti utente)
+    //    {
 
-            MySqlConnection conn = new MySqlConnection(connection_string);
+    //        MySqlConnection conn = new MySqlConnection(connection_string);
 
-            try
-            {
-                conn.Open();
-                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM utenti WHERE email='{utente.username}'AND password='{utente.password}' Limit 1;", conn))
-                {
-                    using (MySqlDataReader resultSet = command.ExecuteReader())
-                    {
-                        if (resultSet.Read())
-                        {
-                            Console.WriteLine("login ok");
-                            conn.Close();
-                            return utente;
-                        }
-                        else
-                        {
-                            throw new Exception("dati inseriti sbagliati");
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                return null;
-            }
+    //        try
+    //        {
+    //            conn.Open();
+    //            using (MySqlCommand command = new MySqlCommand($"SELECT * FROM utenti WHERE email='{utente.username}'AND password='{utente.password}' Limit 1;", conn))
+    //            {
+    //                using (MySqlDataReader resultSet = command.ExecuteReader())
+    //                {
+    //                    if (resultSet.Read())
+    //                    {
+    //                        Console.WriteLine("login ok");
+    //                        conn.Close();
+    //                        return utente;
+    //                    }
+    //                    else
+    //                    {
+    //                        throw new Exception("dati inseriti sbagliati");
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        catch (Exception e)
+    //        {
+    //            Console.WriteLine(e.ToString());
+    //            return null;
+    //        }
 
 
         
-    }
-        public (int, string) AddAttrezzi(Attrezzi attrezzi)
+    //}
+        public Attrezzi AddAttrezzi(Attrezzi attrezzi)
         {
-            int ret = -1;
+            int ret = 0;
             string ret2 = "";
             MySqlConnection conn = new MySqlConnection(connection_string);
             try
@@ -165,7 +165,8 @@ namespace ConsoleApp1
                 {
                     if(command.ExecuteNonQuery()>0)
                     {
-                        ret = (int)command.LastInsertedId;
+                    
+                        ret = (int)command.LastInsertedId; 
                     }
                     else
                     {
@@ -185,7 +186,7 @@ namespace ConsoleApp1
                     conn.Close();
                 }
             }
-            return (ret, ret2);
+            return null;
             
         }
         

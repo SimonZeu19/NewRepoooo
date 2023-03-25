@@ -8,23 +8,34 @@ namespace WebApplication1.Models
 {
     public class AddAttrezzi
     {
-        public ConsoleApp1.Classi.Attrezzi toClassi()
+        public ConsoleApp1.Classi.Attrezzi toInternalAttrezzi()
         {
-            ConsoleApp1.Classi.Attrezzi att = new ConsoleApp1.Classi.Attrezzi()
+            try
             {
-                id_attrezzo=this.id_attrezzo,
-                nome = this.nome,
-                colore = this.colore,
-                dimensione = this.dimensione,
-                marchio = this.marchio,
-                peso = this.peso,
-                prezzo = this.prezzo,
-                quantita = this.quantita,
-                materiale = this.materiale,
 
-            };
+                return new ConsoleApp1.Classi.Attrezzi()
+                {
+                    id_attrezzo = id_attrezzo,
+                    nome = nome,
+                    colore = colore,
+                    dimensione = dimensione,
+                    marchio = marchio,
+                    peso = peso,
+                    prezzo = prezzo,
+                    quantita = quantita,
+                    materiale = materiale,
+                };
+                
 
-            return att;
+             }
+            catch
+            {
+                return null;
+            }
+          
+        
+        
+           
         }
 
 
