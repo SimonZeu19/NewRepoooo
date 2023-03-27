@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Models\AddAttrezzi.cs" />
     <Compile Include="Models\Attrezzi.cs" />
+    <Compile Include="Models\CancellAttrezzi.cs" />
     <Compile Include="Models\Carrello.cs" />
     <Compile Include="Models\ListaUtenti.cs" />
     <Compile Include="Models\Login.cs" />
@@ -168,6 +169,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\McFIT_Studiobilder_1200x500_DE_6a.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Connected Services\ServiceReference1\item.xsd">
@@ -220,6 +222,8 @@
     <Content Include="Views\Utente\Index.cshtml" />
     <Content Include="Views\Admin\AddAttrezzi.cshtml" />
     <Content Include="Views\Admin\SpecificheAttrezzi.cshtml" />
+    <Content Include="Views\Admin\CancellAttrezzi.cshtml" />
+    <Content Include="Views\Admin\ListaUtenti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

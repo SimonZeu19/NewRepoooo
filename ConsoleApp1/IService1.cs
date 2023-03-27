@@ -34,13 +34,13 @@ namespace ConsoleApp1
         [OperationContract]
         (bool, string) crearecarrello(int id_attrezzo, int id_utente, int quntita);
         [OperationContract]
-        (bool, string) Removeattrezzi(int id_attrezzo);
+        Attrezzi Removeattrezzi(int id_attrezzo);
         [OperationContract]
         (List<Carrello>, string) ViewCarrello(int id_utente);
         [OperationContract]
         (bool, string) Removecarrello(int id_carrello);
         [OperationContract]
-        (List<Utenti>, string) ViewUtenti(int id_utente);
+        List<Utenti> ViewUtenti();
        
         [OperationContract]
         (List<Vendite>, string) ViewVendite(int id_utente);

@@ -30,7 +30,13 @@ namespace WebApplication1.Controllers
             return View("Attrezzi", attrezzi);
         }
 
-        public ActionResult SpecificheAttrezzi(int id_attrezzo)
+        public ActionResult SpecificheAttrezzi()
+        {
+            return View();
+        }
+
+       [HttpGet]
+       public ActionResult SpecificheAttrezzi(int id_attrezzo)
         {
 
             var result = wcf.viewSpecificheattrezzi(id_attrezzo);
@@ -52,32 +58,57 @@ namespace WebApplication1.Controllers
         }
 
 
-        public ActionResult AddAttrezzi(AddAttrezzi attrezzi)
+        public ActionResult CancellAttrezzi()
         {
+            int id_attrezzo = Convert.ToInt32(Session["Id_attrezzo"]);
+            var result = wcf.viewSpecificheattrezzi(id_attrezzo);
+            
 
-            ConsoleApp1.Classi.Attrezzi at = attrezzi.toInternalAttrezzi();
-            if (at == null)
-            {
-                ModelState.AddModelError("", "Si è verificato un errore durante la creazione dell' attrezzo");
-                return View();
-
-
+            if (result != null)
+            {   
+                return View("CancellAttrezzi", Models.CancellAttrezzi.fromClassi(result));
             }
 
-            var attre = wcf.AddAttrezzi(at);
-            if (attre.Equals(-1))
+            else
             {
-
-                return View(attre);
+                return RedirectToAction("Attrezzi");
             }
-            return View("Attrezzi", "Admin");
-
-
-
         }
 
+        [HttpPost]
+        public ActionResult CancellAttrezzi(int id_attrezzo)
+        {
+            var result2 = wcf.Removeattrezzi(id_attrezzo);
+            if (result2 != null)
+            {
+                return RedirectToAction("Attrezzi");
+            }
+            else
+            {
+                return RedirectToAction("Attrezzi");
+            }
+        }
+        public ActionResult ListaUtenti()
+        {
 
 
+            return View("ListaUtenti");
+        }
+
+        [HttpPost]
+        public ActionResult ListaUtenti(int id_utente)
+        {
+            var result = wcf.ViewUtenti();
+            List<ListaUtenti> utente = new List<ListaUtenti>();
+
+            foreach (ConsoleApp1.Classi.Utenti utenti in result)
+            {
+                utente.Add(Models.ListaUtenti.fromClassi(utenti));
+                return View(id_utente);
+            }
+            return View("ListaUtente", utente);
+            
+        }
 
     }
 }

@@ -52,10 +52,10 @@ namespace WebApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<System.ValueTuple<bool, string>> crearecarrelloAsync(int id_attrezzo, int id_utente, int quntita);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Removeattrezzi", ReplyAction="http://tempuri.org/IService1/RemoveattrezziResponse")]
-        System.ValueTuple<bool, string> Removeattrezzi(int id_attrezzo);
+        ConsoleApp1.Classi.Attrezzi Removeattrezzi(int id_attrezzo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Removeattrezzi", ReplyAction="http://tempuri.org/IService1/RemoveattrezziResponse")]
-        System.Threading.Tasks.Task<System.ValueTuple<bool, string>> RemoveattrezziAsync(int id_attrezzo);
+        System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi> RemoveattrezziAsync(int id_attrezzo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewCarrello", ReplyAction="http://tempuri.org/IService1/ViewCarrelloResponse")]
         System.ValueTuple<ConsoleApp1.Classi.Carrello[], string> ViewCarrello(int id_utente);
@@ -70,10 +70,10 @@ namespace WebApplication1.ServiceReference1 {
         System.Threading.Tasks.Task<System.ValueTuple<bool, string>> RemovecarrelloAsync(int id_carrello);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewUtenti", ReplyAction="http://tempuri.org/IService1/ViewUtentiResponse")]
-        System.ValueTuple<ConsoleApp1.Classi.Utenti[], string> ViewUtenti(int id_utente);
+        ConsoleApp1.Classi.Utenti[] ViewUtenti();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewUtenti", ReplyAction="http://tempuri.org/IService1/ViewUtentiResponse")]
-        System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Utenti[], string>> ViewUtentiAsync(int id_utente);
+        System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti[]> ViewUtentiAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ViewVendite", ReplyAction="http://tempuri.org/IService1/ViewVenditeResponse")]
         System.ValueTuple<ConsoleApp1.Classi.Vendite[], string> ViewVendite(int id_utente);
@@ -163,11 +163,11 @@ namespace WebApplication1.ServiceReference1 {
             return base.Channel.crearecarrelloAsync(id_attrezzo, id_utente, quntita);
         }
         
-        public System.ValueTuple<bool, string> Removeattrezzi(int id_attrezzo) {
+        public ConsoleApp1.Classi.Attrezzi Removeattrezzi(int id_attrezzo) {
             return base.Channel.Removeattrezzi(id_attrezzo);
         }
         
-        public System.Threading.Tasks.Task<System.ValueTuple<bool, string>> RemoveattrezziAsync(int id_attrezzo) {
+        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Attrezzi> RemoveattrezziAsync(int id_attrezzo) {
             return base.Channel.RemoveattrezziAsync(id_attrezzo);
         }
         
@@ -187,12 +187,12 @@ namespace WebApplication1.ServiceReference1 {
             return base.Channel.RemovecarrelloAsync(id_carrello);
         }
         
-        public System.ValueTuple<ConsoleApp1.Classi.Utenti[], string> ViewUtenti(int id_utente) {
-            return base.Channel.ViewUtenti(id_utente);
+        public ConsoleApp1.Classi.Utenti[] ViewUtenti() {
+            return base.Channel.ViewUtenti();
         }
         
-        public System.Threading.Tasks.Task<System.ValueTuple<ConsoleApp1.Classi.Utenti[], string>> ViewUtentiAsync(int id_utente) {
-            return base.Channel.ViewUtentiAsync(id_utente);
+        public System.Threading.Tasks.Task<ConsoleApp1.Classi.Utenti[]> ViewUtentiAsync() {
+            return base.Channel.ViewUtentiAsync();
         }
         
         public System.ValueTuple<ConsoleApp1.Classi.Vendite[], string> ViewVendite(int id_utente) {
