@@ -88,26 +88,17 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Attrezzi");
             }
         }
+   
         public ActionResult ListaUtenti()
         {
-
-
-            return View("ListaUtenti");
-        }
-
-        [HttpPost]
-        public ActionResult ListaUtenti(int id_utente)
-        {
             var result = wcf.ViewUtenti();
-            List<ListaUtenti> utente = new List<ListaUtenti>();
+            List<ListaUtenti> utenti = new List<ListaUtenti>();
 
-            foreach (ConsoleApp1.Classi.Utenti utenti in result)
+            foreach (ConsoleApp1.Classi.Utenti utente in result)
             {
-                utente.Add(Models.ListaUtenti.fromClassi(utenti));
-                return View(id_utente);
+                utenti.Add(Models.ListaUtenti.fromClassi(utente));
             }
-            return View("ListaUtente", utente);
-            
+            return View("ListaUtenti", utenti);
         }
 
     }

@@ -514,7 +514,7 @@ namespace ConsoleApp1
             {
                 conn.Open();
 
-                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM utenti "))
+                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM utenti;"))
                 {
                     using (MySqlCommand insert = conn.CreateCommand())
                     {
@@ -531,10 +531,11 @@ namespace ConsoleApp1
                             ut.email = result["email"].ToString();
                             ut.username = result["username"].ToString();
                             ut.password = result["password"].ToString();
-                            ut.numerotelefono =Convert.ToInt64(result["numeroditelefono"]);
-                            ut.indirizzoresidenza = result["indirizzoredidenza"].ToString();
+                            ut.indirizzoresidenza = result["indirizzoresidenza"].ToString();
                             ut.indirizzoconsegna = result["indirizzoconsegna"].ToString();
-                            ut.datanascita =Convert.ToDateTime( result["Datanascita"]);
+                            ut.numerotelefono = Convert.ToInt64(result["numerotelefono"]);
+                            ut.datanascita =Convert.ToDateTime( result["datanascita"]);
+                            ut.isAdmin = Convert.ToBoolean(result["isAdmin"]);
 
 
                             utenti.Add(ut);

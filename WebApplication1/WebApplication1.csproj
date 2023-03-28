@@ -224,6 +224,7 @@
     <Content Include="Views\Admin\SpecificheAttrezzi.cshtml" />
     <Content Include="Views\Admin\CancellAttrezzi.cshtml" />
     <Content Include="Views\Admin\ListaUtenti.cshtml" />
+    <Content Include="Views\Utente\Attrezzi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

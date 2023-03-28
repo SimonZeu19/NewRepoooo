@@ -14,7 +14,7 @@ namespace WebApplication1.Models
             {
                 id_attrezzo = source.id_attrezzo,
 
-                img_url = $"/Images/{source.id_attrezzo}.jpg",
+               // img_url = $"/Images/{source.id_attrezzo}.jpg",
                 nome = source.nome,
                 colore = source.colore,
                 dimensione = source.dimensione,

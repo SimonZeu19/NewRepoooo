@@ -1,8 +1,10 @@
-﻿using System;
+﻿using WebApplication1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows;
 
 namespace WebApplication1.Controllers
 {
@@ -14,7 +16,22 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-       
+        public ActionResult Attrezzi()
+        {
+            var result = wcf.FillListAttrezzi();
+            List<Attrezzi> attrezzi = new List<Attrezzi>();
+
+            foreach (ConsoleApp1.Classi.Attrezzi attrezzo in result)
+            {
+                attrezzi.Add(Models.Attrezzi.fromClassi(attrezzo));
+            }
+            return View("Attrezzi", attrezzi);
+        }
+
+        public ActionResult Logout()
+        {
+            return View("Home");
+        }
     }
 }
 

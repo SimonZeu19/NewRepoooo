@@ -106,7 +106,7 @@ namespace WebApplication1.Controllers
                     else
                     {
                         MessageBox.Show(h);
-                        return RedirectToAction("Index", "Utente");
+                        return RedirectToAction("Attrezzi", "Utente");
                     }
 
                 }
