@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
 using WebApplication1.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Windows;
+
 
 namespace WebApplication1.Controllers
 {
@@ -20,10 +25,12 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+
         public ActionResult Carrello()
         {
             return View();
         }
+
 
         public ActionResult Attrezzi()
         {
@@ -36,6 +43,7 @@ namespace WebApplication1.Controllers
             }
             return View("Attrezzi", attrezzi);
         }
+
 
         public ActionResult SpecificheAttrezzi(int id_attrezzo)
         {
@@ -55,6 +63,7 @@ namespace WebApplication1.Controllers
         {
             return RedirectToAction("Index","Home");
         }
+
 
     }
 }

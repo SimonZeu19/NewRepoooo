@@ -21,6 +21,7 @@ namespace ConsoleApp1
     // String to initiate the connection to the database shoppale         
         private static string connection_string = "datasource=localhost;port=3306;username=root;password=;database=shoppale;Convert Zero Datetime=True;";
 
+
         public Utenti Registrazione(Utenti utente)
         {
             MySqlConnection conn = new MySqlConnection(connection_string);
@@ -35,14 +36,14 @@ namespace ConsoleApp1
                         if (resultSet.Read())
                         {
                             throw new Exception("Utente gia registrato");
-                            
+
                         }
                     }
-                    
+
                 }
                 using (MySqlCommand command = new MySqlCommand($"INSERT INTO utenti (email,password,username,nome,cognome,codicefiscale,indirizzoconsegna,indirizzoresidenza) VALUES ('{utente.email}','{utente.password}','{utente.username}','{utente.nome}','{utente.cognome}','{utente.codicefiscale}','{utente.indirizzoconsegna}','{utente.indirizzoresidenza}');", conn))
                 {
-                    if (command.ExecuteNonQuery()>0)
+                    if (command.ExecuteNonQuery() > 0)
                     {
                         Console.WriteLine("registrazione ok");
                         conn.Close();
@@ -55,19 +56,19 @@ namespace ConsoleApp1
                 }
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 return null;
             }
-            
+
         }
         public Utenti LoginUtente(Utenti utente)
         {
             Utenti ret = null;
             string ret2 = "";
             MySqlConnection conn = new MySqlConnection(connection_string);
-           // Console.WriteLine("a");
+            // Console.WriteLine("a");
 
             try
             {
@@ -90,13 +91,12 @@ namespace ConsoleApp1
                                 indirizzoresidenza = resultSet.GetString(7),
                                 indirizzoconsegna = resultSet.GetString(8),
                                 numerotelefono = resultSet.GetInt64(9),
-                                datanascita= resultSet.GetDateTime(10),
+                                datanascita = resultSet.GetDateTime(10),
                                 isAdmin = resultSet.GetBoolean(11),
 
 
                             };
-                       
-                            
+
                         }
                         else
                         {
@@ -105,20 +105,20 @@ namespace ConsoleApp1
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 ret2 = e.Message;
             }
             finally
             {
-                if(conn.State == ConnectionState.Open)
+                if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
             }
             return ret;
-           
+
         }
 
         public Attrezzi AddAttrezzi(Attrezzi attrezzi)
@@ -130,12 +130,12 @@ namespace ConsoleApp1
             {
                 conn.Open();
 
-                using(MySqlCommand command =new MySqlCommand($"INSERT INTO attrezzi(id_attrezzo, nome, colore, dimensione, marchio, peso, prezzo, quantita, materiale) VALUES ('{attrezzi.id_attrezzo}','{attrezzi.nome}','{attrezzi.colore}', '{attrezzi.dimensione}','{attrezzi.marchio}','{attrezzi.peso}','{attrezzi.prezzo}','{attrezzi.quantita}','{attrezzi.materiale}');", conn))
+                using (MySqlCommand command = new MySqlCommand($"INSERT INTO attrezzi(id_attrezzo, nome, colore, dimensione, marchio, peso, prezzo, quantita, materiale) VALUES ('{attrezzi.id_attrezzo}','{attrezzi.nome}','{attrezzi.colore}', '{attrezzi.dimensione}','{attrezzi.marchio}','{attrezzi.peso}','{attrezzi.prezzo}','{attrezzi.quantita}','{attrezzi.materiale}');", conn))
                 {
-                    if(command.ExecuteNonQuery()>0)
+                    if (command.ExecuteNonQuery() > 0)
                     {
-                    
-                        ret = (int)command.LastInsertedId; 
+
+                        ret = (int)command.LastInsertedId;
                     }
                     else
                     {
@@ -143,22 +143,22 @@ namespace ConsoleApp1
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 ret2 = e.Message;
             }
             finally
             {
-                if(conn.State==ConnectionState.Open)
+                if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
             }
             return null;
-            
+
         }
-        
+
         public List<Attrezzi> FillListAttrezzi()
         {
             List<Attrezzi> attrezzi = new List<Attrezzi>();
@@ -193,30 +193,30 @@ namespace ConsoleApp1
                     }
                 }
 
-              
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Errore: {0}", ex.Message);
             }
             return attrezzi;
-           
+
         }
         public Attrezzi viewSpecificheattrezzi(int id_attrezzo)
         {
             Attrezzi ret = null;
-           
+
             //connexion au database
             MySqlConnection conn = new MySqlConnection(connection_string);
             try
             {
                 conn.Open();
                 //trouver un produit à travers l'id et l'imprimer
-                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi WHERE id_attrezzo='{id_attrezzo}' LIMIT 1;",conn))
+                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM attrezzi WHERE id_attrezzo='{id_attrezzo}' LIMIT 1;", conn))
                 {
-                    using(MySqlDataReader resultSet = command.ExecuteReader())
+                    using (MySqlDataReader resultSet = command.ExecuteReader())
                     {
-                        if(resultSet.Read())
+                        if (resultSet.Read())
                         {
                             ret = new Attrezzi()
                             {
@@ -230,37 +230,38 @@ namespace ConsoleApp1
                                 quantita = (int)resultSet.GetUInt32(7),
                                 materiale = resultSet.GetString(8),
                             };
-                            
-                            
+
+
                         }
                         else
                         {
                             throw new Exception("Atrrezzo non trovato");
                         }
-                        
-                        
+
+
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-            
+
             }
             finally
             {
-                if(conn.State==ConnectionState.Open)
+                if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
             }
             return ret;
 
-            
+
         }
-        public (bool, string) Removeattrezzi(int id_attrezzo)
+        public Attrezzi Removeattrezzi(int id_attrezzo)
         {
-            bool ret = false;
+            Attrezzi ret = null;
+            //bool ret = false;
             string ret2 = "";
 
             MySqlConnection conn = new MySqlConnection(connection_string);
@@ -270,26 +271,46 @@ namespace ConsoleApp1
 
                 using (MySqlCommand command = new MySqlCommand($"DELETE FROM attrezzi WHERE id_attrezzo= '{id_attrezzo}';", conn))
                 {
-                    ret = Convert.ToBoolean(command.ExecuteNonQuery());
-                    if(!ret)
+                    using (MySqlDataReader resultSet = command.ExecuteReader())
                     {
-                        throw new Exception("Rimozione degli attrezzi fallita");
+                        if (resultSet.Read())
+                        {
+                            ret = new Attrezzi()
+                            {
+                                id_attrezzo = (int)resultSet.GetUInt32(0),
+                                nome = resultSet.GetString(1),
+                                colore = resultSet.GetString(2),
+                                dimensione = resultSet.GetString(3),
+                                marchio = resultSet.GetString(4),
+                                peso = resultSet.GetDouble(5),
+                                prezzo = resultSet.GetFloat(6),
+                                quantita = (int)resultSet.GetUInt32(7),
+                                materiale = resultSet.GetString(8),
+                            };
+
+
+                        }
+                        else
+                        {
+                            throw new Exception("Atrrezzo non trovato");
+                        }
+                       
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 ret2 = e.Message;
             }
             finally
             {
-                if(conn.State==ConnectionState.Open)
+                if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
             }
-            return (ret, ret2);
+            return ret;
         }
 
         public (bool, string) crearecarrello(int id_attrezzo, int id_utente, int quntita)
@@ -303,31 +324,31 @@ namespace ConsoleApp1
             try
             {
                 conn.Open();
-                using(MySqlCommand command = new MySqlCommand($"SELECT id_attrezzo, quantita FROM attrezzi WHERE id_attrezzo='{id_attrezzo}'LIMIT 1;",conn))
+                using (MySqlCommand command = new MySqlCommand($"SELECT id_attrezzo, quantita FROM attrezzi WHERE id_attrezzo='{id_attrezzo}'LIMIT 1;", conn))
                 {
                     using (MySqlDataReader resultSet = command.ExecuteReader())
                     {
-                        if(resultSet.Read())
+                        if (resultSet.Read())
                         {
                             available = (int)resultSet.GetUInt32(1);
-                            if(quntita>available)
+                            if (quntita > available)
                             {
                                 throw new Exception("La quantita suppera i numero di pezzi disponibile");
                             }
-                            
+
                         }
                         else
                         {
-                             throw new Exception("il prodotto selezionato non esiste");
+                            throw new Exception("il prodotto selezionato non esiste");
                         }
                     }
-                    
+
                 }
-                if(create_new)
+                if (create_new)
                 {
-                    using(MySqlCommand command = new MySqlCommand($"INSERT INTO carrello(id_utente, id_attrezzo, quantita) VALUES ('{id_utente}','{id_attrezzo}','{quntita}');",conn))
+                    using (MySqlCommand command = new MySqlCommand($"INSERT INTO carrello(id_utente, id_attrezzo, quantita) VALUES ('{id_utente}','{id_attrezzo}','{quntita}');", conn))
                     {
-                        if(command.ExecuteNonQuery()>0)
+                        if (command.ExecuteNonQuery() > 0)
                         {
                             ret = true;
                         }
@@ -339,9 +360,9 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    using(MySqlCommand command = new MySqlCommand($"UPDATE carrello SET quantita='{quntita}' WHERE id_carrello = '{id_carrello}';", conn))
+                    using (MySqlCommand command = new MySqlCommand($"UPDATE carrello SET quantita='{quntita}' WHERE id_carrello = '{id_carrello}';", conn))
                     {
-                        if(command.ExecuteNonQuery()>0)
+                        if (command.ExecuteNonQuery() > 0)
                         {
                             ret = true;
                         }
@@ -351,17 +372,17 @@ namespace ConsoleApp1
                         }
                     }
                 }
-                
+
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 ret2 = e.Message;
             }
             finally
             {
-                if(conn.State==ConnectionState.Open)
+                if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
@@ -378,11 +399,11 @@ namespace ConsoleApp1
             try
             {
                 conn.Open();
-                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM carrello WHERE id_utente = '{id_utente}';",conn))
+                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM carrello WHERE id_utente = '{id_utente}';", conn))
                 {
                     using (MySqlDataReader resultSet = command.ExecuteReader())
                     {
-                        while(resultSet.Read())
+                        while (resultSet.Read())
                         {
                             Carrello carrello = new Carrello()
                             {
@@ -394,26 +415,26 @@ namespace ConsoleApp1
                         }
                     }
                 }
-                if(ret.Count==0)
+                if (ret.Count == 0)
                 {
                     throw new Exception("nessun prodotto nel carrello");
 
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 ret2 = e.Message;
             }
             finally
             {
-                if(conn.State==ConnectionState.Open)
+                if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
             }
             return (ret, ret2);
-            
+
         }
         public (bool, string) Removecarrello(int id_carrello)
         {
@@ -424,23 +445,23 @@ namespace ConsoleApp1
             try
             {
                 conn.Open();
-                using (MySqlCommand command =new MySqlCommand($"DELETE FROM carrello WHERE id_carrello = '{id_carrello}';",conn))
+                using (MySqlCommand command = new MySqlCommand($"DELETE FROM carrello WHERE id_carrello = '{id_carrello}';", conn))
                 {
                     ret = Convert.ToBoolean(command.ExecuteNonQuery());
-                    if(!ret)
+                    if (!ret)
                     {
                         throw new Exception("Rimozione del carrello fallito");
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 ret2 = e.Message;
             }
             finally
             {
-                if(conn.State==ConnectionState.Open)
+                if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
@@ -448,62 +469,57 @@ namespace ConsoleApp1
             return (ret, ret2);
         }
 
-       
 
-        public (List<Utenti>, string) ViewUtenti(int id_utente)
+        public List<Utenti> ViewUtenti()
         {
-            List<Utenti> ret = new List<Utenti>();
-            string ret2 = "";
+            List<Utenti> utenti = new List<Utenti>();
 
             MySqlConnection conn = new MySqlConnection(connection_string);
             try
             {
                 conn.Open();
 
-                using(MySqlCommand command = new MySqlCommand($"SELECT * FROM utenti ORDER BY id WHERE id_utente= '{id_utente}';",conn))
+                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM utenti;"))
                 {
-                    using (MySqlDataReader resultSet = command.ExecuteReader())
+                    using (MySqlCommand insert = conn.CreateCommand())
                     {
-                        while (resultSet.Read())
+                        insert.CommandText = "SELECT * FROM utenti";
+                        var result = insert.ExecuteReader();
+                        while (result.Read())
                         {
-                            Utenti utente = new Utenti()
-                            {
-                                id_utente = (int)resultSet.GetUInt32(0),
-                                username = resultSet.GetString(1),
-                                password = "",
-                                email = resultSet.GetString(2),
-                                nome = resultSet.GetString(3),
-                                cognome = resultSet.GetString(4),
-                                codicefiscale = resultSet.GetString(5),
-                                indirizzoresidenza = resultSet.GetString(6),
-                                numerotelefono = (int)resultSet.GetUInt32(7),
-                                isAdmin = resultSet.GetBoolean(8),
-                                datanascita = resultSet.GetDateTime(9),
-                            };
-                            ret.Add(utente);
+                            Utenti ut = new Utenti();
+                            ut.id_utente = Convert.ToInt32(result["id_utente"]);
+                            ut.nome = result["nome"].ToString();
+                            //a.peso = Convert.ToDouble(result["Peso"]);
+                            ut.cognome = result["cognome"].ToString();
+                            ut.codicefiscale = result["codicefiscale"].ToString();
+                            ut.email = result["email"].ToString();
+                            ut.username = result["username"].ToString();
+                            ut.password = result["password"].ToString();
+                            ut.indirizzoresidenza = result["indirizzoresidenza"].ToString();
+                            ut.indirizzoconsegna = result["indirizzoconsegna"].ToString();
+                            ut.numerotelefono = Convert.ToInt64(result["numerotelefono"]);
+                            ut.datanascita =Convert.ToDateTime( result["datanascita"]);
+                            ut.isAdmin = Convert.ToBoolean(result["isAdmin"]);
 
+
+                            utenti.Add(ut);
                         }
-                    }
+                        conn.Close();
+                        conn.Dispose();
+                        return utenti;
+                    
                 }
-                if(ret.Count==0)
-                {
-                    throw new Exception("nessun utente trovato");
+
                 }
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                Console.WriteLine(e.ToString());
-                ret2 = e.Message;
+                Console.WriteLine("Errore: {0}", ex.Message);
             }
-            finally
-            {
-                if(conn.State==ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-            return (ret, ret2);
+            return utenti;
         }
+       
 
         public (List<Vendite>, string) ViewVendite(int id_utente)
         {

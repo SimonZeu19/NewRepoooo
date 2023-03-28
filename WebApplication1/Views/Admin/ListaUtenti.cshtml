@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication1.Models.ListaUtenti>
+@{
+    ViewBag.Title = "ListaUtenti";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Lista Utenti</h2>
+
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.id_utente)</th>
+        <th>@Html.DisplayNameFor(model => model.nomeutente)</th>
+        <th>@Html.DisplayNameFor(model => model.email)</th>
+        <th>@Html.DisplayNameFor(model => model.password)</th>
+        
+
+    </tr>
+    @foreach (WebApplication1.Models.ListaUtenti item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(Model => item.id_utente)</td>
+            @{ Session["Id_utente"] = item.id_utente; }
+            <td>@Html.DisplayFor(Model => item.nomeutente)</td>
+            <td>@Html.DisplayFor(Model => item.email)</td>
+            <td>@Html.DisplayFor(Model => item.password)</td>
+          
+           
+
+        </tr>
+    }
+</table>
+

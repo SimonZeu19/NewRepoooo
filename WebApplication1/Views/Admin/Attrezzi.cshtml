@@ -18,18 +18,18 @@
         </tr>
         @foreach (WebApplication1.Models.Attrezzi item in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(Model => item.id_attrezzo)</td>
-                <td>@Html.DisplayFor(Model => item.nome)</td>
-                <td>@Html.DisplayFor(Model => item.marchio)</td>
-                <td>@Html.DisplayFor(Model => item.peso)</td>
-                <td>@Html.DisplayFor(Model => item.prezzo)</td>
-                <td>@Html.DisplayFor(Model => item.quantita)</td>
-                <td>@Html.ActionLink("SpecificheAttrezzi","SpecificheAttrezzi", new {id_attrezzo=item.id_attrezzo })</td>
+<tr>
+    <td>@Html.DisplayFor(Model => item.id_attrezzo)</td>
+    @{ Session["Id_attrezzo"] = item.id_attrezzo; }
+    <td>@Html.DisplayFor(Model => item.nome)</td>
+    <td>@Html.DisplayFor(Model => item.marchio)</td>
+    <td>@Html.DisplayFor(Model => item.peso)</td>
+    <td>@Html.DisplayFor(Model => item.prezzo)</td>
+    <td>@Html.DisplayFor(Model => item.quantita)</td>
+    <td>@Html.ActionLink("SpecificheAttrezzi", "SpecificheAttrezzi", new { id_attrezzo = item.id_attrezzo })</td>
+    <td>@Html.ActionLink("CancellAttrezzi", "CancellAttrezzi", new { id_attrezzo = item.id_attrezzo })</td>
 
 
-            </tr>
+</tr>
         }
     </table>
-
-
