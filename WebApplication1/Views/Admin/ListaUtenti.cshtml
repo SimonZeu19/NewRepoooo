@@ -12,21 +12,20 @@
         <th>@Html.DisplayNameFor(model => model.nomeutente)</th>
         <th>@Html.DisplayNameFor(model => model.email)</th>
         <th>@Html.DisplayNameFor(model => model.password)</th>
-        
 
     </tr>
     @foreach (WebApplication1.Models.ListaUtenti item in Model)
     {
-        <tr>
-            <td>@Html.DisplayFor(Model => item.id_utente)</td>
-            @{ Session["Id_utente"] = item.id_utente; }
-            <td>@Html.DisplayFor(Model => item.nomeutente)</td>
-            <td>@Html.DisplayFor(Model => item.email)</td>
-            <td>@Html.DisplayFor(Model => item.password)</td>
-          
-           
+<tr>
+    <td>@Html.DisplayFor(Model => item.id_utente)</td>
+        @{ Session["Id_utente"] = item.id_utente; }  
+    <td>@Html.DisplayFor(Model => item.nomeutente)</td>
+    <td>@Html.DisplayFor(Model => item.email)</td>
+    <td>@Html.DisplayFor(Model => item.password)</td>
 
-        </tr>
+
+
+</tr>
     }
 </table>
 

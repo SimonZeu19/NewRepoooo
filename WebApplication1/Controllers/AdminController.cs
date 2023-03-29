@@ -1,10 +1,8 @@
 ﻿using WebApplication1.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Windows;
+
 
 namespace WebApplication1.Controllers
 {
@@ -57,6 +55,11 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
 
 
         public ActionResult CancellAttrezzi()
@@ -89,7 +92,9 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Attrezzi");
             }
         }
-   
+
+
+     
         public ActionResult ListaUtenti()
         {
             var result = wcf.ViewUtenti();
@@ -101,6 +106,8 @@ namespace WebApplication1.Controllers
             }
             return View("ListaUtenti", utenti);
         }
+
+       
 
     }
 }
